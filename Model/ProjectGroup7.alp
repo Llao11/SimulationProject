@@ -4,7 +4,7 @@
 	         AnyLogic Project File 
 *************************************************	         
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.8.3.202304281216" AlpVersion="8.7.7">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.8.2.202303221144" AlpVersion="8.7.7">
 <Model>
 	<Id>1686863249761</Id>
 	<Name><![CDATA[ProjectGroup7]]></Name>
@@ -1767,6 +1767,14 @@ if (takeTray.queueSize(queueLineMain) > 27){
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[if(ped.inSouthHall == true){
+	southHallCount = southHallCount-1;
+}
+else if(ped.inWestHall){
+	westHallCount = westHallCount-1;
+}]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
@@ -1885,6 +1893,10 @@ if (takeTray.queueSize(queueLineMain) > 27){
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[visitorsInSelArea = visitorsInSelArea+1;
+ped.selAreaEntryTime = time();]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onCancel]]></Name>
@@ -2597,6 +2609,12 @@ ped.availableExits.remove("3")]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[visitorsInSelArea = visitorsInSelArea-1;
+visitorsInsideArea.add(visitorsInSelArea);
+selAreaWaitTime.add(time()-ped.selAreaEntryTime);
+waitingTime = time() - ped.selAreaEntryTime;]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onCancel]]></Name>
@@ -2715,6 +2733,10 @@ ped.availableExits.remove("3")]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[ped.inWestHall = true;
+westHallCount = westHallCount+1;]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onBeginWait]]></Name>
@@ -3569,6 +3591,10 @@ ped.availableExits.remove("6");]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[ped.inSouthHall = true;
+southHallCount = southHallCount+1;]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onBeginWait]]></Name>
