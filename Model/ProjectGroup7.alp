@@ -108,11 +108,41 @@
 			<CurrentLevel>1686863249771</CurrentLevel>
 			<ConnectionsId>1686863249765</ConnectionsId>
 			<Variables>
+				<Variable Class="PlainVariable">
+					<Id>1688017722731</Id>
+					<Name><![CDATA[southHallCount]]></Name>
+					<X>260</X><Y>1390</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1688017821219</Id>
+					<Name><![CDATA[westHallCount]]></Name>
+					<X>260</X><Y>1450</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
 				<Variable Class="Parameter">
 					<Id>1686909988993</Id>
 					<Name><![CDATA[timeToTakeTray]]></Name>
-					<X>220</X><Y>-160</Y>
-					<Label><X>-110</X><Y>-80</Y></Label>
+					<X>100</X><Y>-160</Y>
+					<Label><X>-70</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
@@ -200,6 +230,39 @@
 					</Points>
 				</Connector>
 				<Connector>
+					<Id>1686866871463</Id>
+					<Name><![CDATA[connector1]]></Name>
+					<X>560</X><Y>960</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<SourceEmbeddedObjectReference>
+						<PackageName><![CDATA[projectgroup7]]></PackageName>
+						<ClassName><![CDATA[Main]]></ClassName>
+						<ItemName><![CDATA[foodSelection1]]></ItemName>
+					</SourceEmbeddedObjectReference>
+					<SourceConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
+						<ClassName><![CDATA[PedSelectOutput]]></ClassName>
+						<ItemName><![CDATA[in]]></ItemName>
+					</SourceConnectableItemReference>
+					<TargetEmbeddedObjectReference>
+						<PackageName><![CDATA[projectgroup7]]></PackageName>
+						<ClassName><![CDATA[Main]]></ClassName>
+						<ItemName><![CDATA[isEnoughFood]]></ItemName>
+					</TargetEmbeddedObjectReference>
+					<TargetConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
+						<ClassName><![CDATA[PedSelectOutput]]></ClassName>
+						<ItemName><![CDATA[out2]]></ItemName>
+					</TargetConnectableItemReference>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-120</X><Y>-20</Y></Point>
+					</Points>
+				</Connector>
+				<Connector>
 					<Id>1686867843799</Id>
 					<Name><![CDATA[connector8]]></Name>
 					<X>630</X><Y>960</Y>
@@ -243,7 +306,7 @@
 					<SourceEmbeddedObjectReference>
 						<PackageName><![CDATA[projectgroup7]]></PackageName>
 						<ClassName><![CDATA[Main]]></ClassName>
-						<ItemName><![CDATA[foodService3]]></ItemName>
+						<ItemName><![CDATA[foodService2]]></ItemName>
 					</SourceEmbeddedObjectReference>
 					<SourceConnectableItemReference>
 						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
@@ -276,7 +339,7 @@
 					<SourceEmbeddedObjectReference>
 						<PackageName><![CDATA[projectgroup7]]></PackageName>
 						<ClassName><![CDATA[Main]]></ClassName>
-						<ItemName><![CDATA[foodService2]]></ItemName>
+						<ItemName><![CDATA[foodService3]]></ItemName>
 					</SourceEmbeddedObjectReference>
 					<SourceConnectableItemReference>
 						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
@@ -606,7 +669,7 @@
 					<SourceEmbeddedObjectReference>
 						<PackageName><![CDATA[projectgroup7]]></PackageName>
 						<ClassName><![CDATA[Main]]></ClassName>
-						<ItemName><![CDATA[foodService2]]></ItemName>
+						<ItemName><![CDATA[foodService3]]></ItemName>
 					</SourceEmbeddedObjectReference>
 					<SourceConnectableItemReference>
 						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
@@ -678,7 +741,7 @@
 					<SourceEmbeddedObjectReference>
 						<PackageName><![CDATA[projectgroup7]]></PackageName>
 						<ClassName><![CDATA[Main]]></ClassName>
-						<ItemName><![CDATA[foodService3]]></ItemName>
+						<ItemName><![CDATA[foodService2]]></ItemName>
 					</SourceEmbeddedObjectReference>
 					<SourceConnectableItemReference>
 						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
@@ -842,8 +905,8 @@
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
 						<Point><X>20</X><Y>40</Y></Point>
-						<Point><X>-30</X><Y>40</Y></Point>
-						<Point><X>-30</X><Y>130</Y></Point>
+						<Point><X>-40</X><Y>40</Y></Point>
+						<Point><X>-40</X><Y>130</Y></Point>
 						<Point><X>-20</X><Y>130</Y></Point>
 					</Points>
 				</Connector>
@@ -1114,115 +1177,62 @@
 						<Point><X>-90</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
-				<Connector>
-					<Id>1688053956601</Id>
-					<Name><![CDATA[connector30]]></Name>
-					<X>560</X><Y>960</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<SourceEmbeddedObjectReference>
-						<PackageName><![CDATA[projectgroup7]]></PackageName>
-						<ClassName><![CDATA[Main]]></ClassName>
-						<ItemName><![CDATA[foodSelection1]]></ItemName>
-					</SourceEmbeddedObjectReference>
-					<SourceConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-						<ClassName><![CDATA[PedSelectOutput]]></ClassName>
-						<ItemName><![CDATA[in]]></ItemName>
-					</SourceConnectableItemReference>
-					<TargetEmbeddedObjectReference>
-						<PackageName><![CDATA[projectgroup7]]></PackageName>
-						<ClassName><![CDATA[Main]]></ClassName>
-						<ItemName><![CDATA[isEnoughFood]]></ItemName>
-					</TargetEmbeddedObjectReference>
-					<TargetConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-						<ClassName><![CDATA[PedSelectOutput]]></ClassName>
-						<ItemName><![CDATA[out2]]></ItemName>
-					</TargetConnectableItemReference>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-70</X><Y>0</Y></Point>
-						<Point><X>-120</X><Y>-20</Y></Point>
-					</Points>
-				</Connector>
-				<Connector>
-					<Id>1688082448477</Id>
-					<Name><![CDATA[connector1]]></Name>
-					<X>580</X><Y>1230</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<SourceEmbeddedObjectReference>
-						<PackageName><![CDATA[projectgroup7]]></PackageName>
-						<ClassName><![CDATA[Main]]></ClassName>
-						<ItemName><![CDATA[foodSelection2]]></ItemName>
-					</SourceEmbeddedObjectReference>
-					<SourceConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-						<ClassName><![CDATA[PedSelectOutput]]></ClassName>
-						<ItemName><![CDATA[out5]]></ItemName>
-					</SourceConnectableItemReference>
-					<TargetEmbeddedObjectReference>
-						<PackageName><![CDATA[projectgroup7]]></PackageName>
-						<ClassName><![CDATA[Main]]></ClassName>
-						<ItemName><![CDATA[isEnoughFood]]></ItemName>
-					</TargetEmbeddedObjectReference>
-					<TargetConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-						<ClassName><![CDATA[PedSelectOutput]]></ClassName>
-						<ItemName><![CDATA[in]]></ItemName>
-					</TargetConnectableItemReference>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>0</X><Y>20</Y></Point>
-						<Point><X>-230</X><Y>20</Y></Point>
-						<Point><X>-230</X><Y>-100</Y></Point>
-						<Point><X>-160</X><Y>-310</Y></Point>
-					</Points>
-				</Connector>
-				<Connector>
-					<Id>1688082708851</Id>
-					<Name><![CDATA[connector31]]></Name>
-					<X>580</X><Y>1040</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<SourceEmbeddedObjectReference>
-						<PackageName><![CDATA[projectgroup7]]></PackageName>
-						<ClassName><![CDATA[Main]]></ClassName>
-						<ItemName><![CDATA[foodSelection1]]></ItemName>
-					</SourceEmbeddedObjectReference>
-					<SourceConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-						<ClassName><![CDATA[PedSelectOutput]]></ClassName>
-						<ItemName><![CDATA[out5]]></ItemName>
-					</SourceConnectableItemReference>
-					<TargetEmbeddedObjectReference>
-						<PackageName><![CDATA[projectgroup7]]></PackageName>
-						<ClassName><![CDATA[Main]]></ClassName>
-						<ItemName><![CDATA[isEnoughFood]]></ItemName>
-					</TargetEmbeddedObjectReference>
-					<TargetConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-						<ClassName><![CDATA[PedSelectOutput]]></ClassName>
-						<ItemName><![CDATA[in]]></ItemName>
-					</TargetConnectableItemReference>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>0</X><Y>10</Y></Point>
-						<Point><X>-40</X><Y>10</Y></Point>
-						<Point><X>-40</X><Y>200</Y></Point>
-						<Point><X>-220</X><Y>200</Y></Point>
-						<Point><X>-220</X><Y>90</Y></Point>
-						<Point><X>-160</X><Y>-120</Y></Point>
-					</Points>
-				</Connector>
 			</Connectors>
+			<Schedules>
+				<Schedule>
+					<Id>1688001097836</Id>
+					<Name><![CDATA[arrival_schedule]]></Name>
+					<X>200</X><Y>-180</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<ValueType>double_</ValueType>
+					<UnitType><![CDATA[RATE]]></UnitType>
+					<UnitOfValue Class="RateUnits"><![CDATA[PER_HOUR]]></UnitOfValue>
+					<DefaultValue>1.0</DefaultValue>
+					<RepresentationMode>intervals</RepresentationMode>
+					<RepresentationType>timeUnits</RepresentationType>
+					<FirstDayOfWeek>sunday</FirstDayOfWeek>
+					<TimeUnitsInterval>minutes</TimeUnitsInterval>
+					<RepeatTime>10800000</RepeatTime>
+					<RepeatTimeInterval>days</RepeatTimeInterval>
+					<IsSnapTo>false</IsSnapTo>
+					<SnapTo>0</SnapTo>
+					<SnapToTimeUnits>minutes</SnapToTimeUnits>
+					<AllDayExceptionMode>false</AllDayExceptionMode>
+					<LoadFromDatabase><![CDATA[false]]></LoadFromDatabase>
+					<IntervalsQuery>
+						<TableReference>
+						</TableReference>
+							<StartColumnReference>
+							</StartColumnReference>
+							<EndColumnReference>
+							</EndColumnReference>
+							<ValueColumnReference>
+							</ValueColumnReference>
+					</IntervalsQuery>
+					<Intervals>
+						<Interval>
+							<Start>0</Start>
+							<End>3600000</End>
+							<Value>400.0</Value>
+						</Interval>
+						<Interval>
+							<Start>3660000</Start>
+							<End>7200000</End>
+							<Value>650.0</Value>
+						</Interval>
+						<Interval>
+							<Start>7260000</Start>
+							<End>10800000</End>
+							<Value>500.0</Value>
+						</Interval>
+					</Intervals>
+					<Exceptions>
+					</Exceptions>
+				</Schedule>
+			</Schedules>
 			<AgentLinks>
 				<AgentLink>
 					<Id>1686863249765</Id>
@@ -1289,6 +1299,9 @@
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[arrivalType]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[self.RATE_SCHEDULE]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
@@ -1302,6 +1315,9 @@
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[rateSchedule]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[arrival_schedule]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[modifyRate]]></Name>
@@ -1311,6 +1327,9 @@
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[arrivalSchedule]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[arrival_schedule]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[limitArrivals]]></Name>
@@ -1429,13 +1448,21 @@ int max = 4;
 ped.hunger = uniform_discr(min, max);
 
 if (
-(foodService1.queueSize(queueFSLine1)<20) &&
-(foodService3.queueSize(queueFSLine3)<30) &&
-(foodService2.queueSize(queueFSLine2)<25) &&
-(selfService1.queueSize(queueSSLine1)<20) &&
-(selfService2.queueSize(queueSSLine2)<25) &&
-(selfService3.queueSize(queueSSLine3)<25) &&
-(selfDrinksServiceArea.queueSize(queueDrinksLine1)<10) 
+(foodService1.queueSize(queueFS1_Line1)<20) &&
+(foodService1.queueSize(queueFS1_Line2)<20) &&
+(foodService2.queueSize(queueFS2_Line1)<30) &&
+(foodService2.queueSize(queueFS2_Line2)<30) &&
+(foodService3.queueSize(queueFS3_Line1)<25) &&
+(selfService1.queueSize(queueSS1_Line1)<20) &&
+(selfService1.queueSize(queueSS1_Line2)<20) &&
+(selfService1.queueSize(queueSS1_Line3)<20) &&
+(selfService2.queueSize(queueSS2_Line1)<25) &&
+(selfService3.queueSize(queueSS3_Line1)<25) &&
+(selfService3.queueSize(queueSS3_Line2)<25) &&
+(selfDrinksServiceArea.queueSize(queueDrinksLine1)<7) &&
+(selfDrinksServiceArea.queueSize(queueDrinksLine2)<7) &&
+(selfDrinksServiceArea.queueSize(queueDrinksLine3)<7) &&
+(selfDrinksServiceArea.queueSize(queueDrinksLine4)<7)
 ){
 	hold1F.unblock();
 } else hold1F.block();
@@ -1606,6 +1633,14 @@ if (takeTray.queueSize(queueLineMain) > 27){
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[if(ped.inSouthHall == true){
+	southHallCount = southHallCount-1;
+}
+else if(ped.inWestHall){
+	westHallCount = westHallCount-1;
+}]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
@@ -1790,56 +1825,50 @@ if (takeTray.queueSize(queueLineMain) > 27){
 					<Parameters>
 						<Parameter>
 							<Name><![CDATA[type]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[self.TYPE_CONDITIONS]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[condition1]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[ped.exitSelection()==1]]></Code>
+								<Code><![CDATA[if (ped.takenFood.size() < ped.hunger) ]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[condition2]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[ped.exitSelection()==2]]></Code>
+								<Code><![CDATA[!ped.vegetarian]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[condition3]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[ped.exitSelection()==3]]></Code>
+								<Code><![CDATA[false]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[condition4]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[ped.exitSelection()>3]]></Code>
+								<Code><![CDATA[false]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[probability1]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[0.167]]></Code>
+								<Code><![CDATA[0.3]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[probability2]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[0.167]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[probability3]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[0.167]]></Code>
+								<Code><![CDATA[0.25]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[probability4]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[0.499]]></Code>
+								<Code><![CDATA[0.25]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -1853,30 +1882,23 @@ if (takeTray.queueSize(queueLineMain) > 27){
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[traceln(ped.getId());
-traceln(ped.availableExits);]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit1]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[ped.takenFood.add("1");
-ped.availableExits.remove("1")]]></Code>
+								<Code><![CDATA[ped.takenFood.add(1);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit2]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[ped.takenFood.add("2");
-ped.availableExits.remove("2")]]></Code>
+								<Code><![CDATA[ped.takenFood.add(2);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit3]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[ped.takenFood.add("3");
-ped.availableExits.remove("3")]]></Code>
+								<Code><![CDATA[ped.takenFood.add(3);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -2061,6 +2083,9 @@ ped.availableExits.remove("3")]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[queueChoicePolicy]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[self.CHOICE_CLOSEST_QUEUE]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[chooseQueue]]></Name>
@@ -2149,7 +2174,7 @@ ped.availableExits.remove("3")]]></Code>
 				</EmbeddedObject>
 				<EmbeddedObject>
 					<Id>1686867851955</Id>
-					<Name><![CDATA[foodService3]]></Name>
+					<Name><![CDATA[foodService2]]></Name>
 					<X>630</X><Y>1000</Y>
 					<Label><X>-25</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -2170,7 +2195,7 @@ ped.availableExits.remove("3")]]></Code>
 						<Parameter>
 							<Name><![CDATA[services]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[foodServiceArea3]]></Code>
+								<Code><![CDATA[foodServiceArea2]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -2185,7 +2210,7 @@ ped.availableExits.remove("3")]]></Code>
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[uniform(10, 20)]]></Code>
+								<Code><![CDATA[uniform(20, 30)]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 							</Value>
 						</Parameter>
@@ -2261,7 +2286,7 @@ ped.availableExits.remove("3")]]></Code>
 				</EmbeddedObject>
 				<EmbeddedObject>
 					<Id>1686867909750</Id>
-					<Name><![CDATA[foodService2]]></Name>
+					<Name><![CDATA[foodService3]]></Name>
 					<X>630</X><Y>1050</Y>
 					<Label><X>-25</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -2282,7 +2307,7 @@ ped.availableExits.remove("3")]]></Code>
 						<Parameter>
 							<Name><![CDATA[services]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[foodServiceArea2]]></Code>
+								<Code><![CDATA[foodServiceArea3]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -2554,6 +2579,10 @@ ped.availableExits.remove("3")]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[ped.inWestHall = true;
+westHallCount = westHallCount+1;]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onBeginWait]]></Name>
@@ -2741,33 +2770,18 @@ ped.availableExits.remove("3")]]></Code>
 					<Parameters>
 						<Parameter>
 							<Name><![CDATA[type]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[self.TYPE_CONDITIONS]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[condition1]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[ped.exitSelection()==4]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[condition2]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[ped.exitSelection()==5]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[condition3]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[ped.exitSelection()==6]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[condition4]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[false]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[probability1]]></Name>
@@ -2808,22 +2822,19 @@ ped.availableExits.remove("3")]]></Code>
 						<Parameter>
 							<Name><![CDATA[onExit1]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[ped.takenFood.add("4");
-ped.availableExits.remove("4");]]></Code>
+								<Code><![CDATA[ped.takenFood.add(4);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit2]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[ped.takenFood.add("5");
-ped.availableExits.remove("5");]]></Code>
+								<Code><![CDATA[ped.takenFood.add(5);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit3]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[ped.takenFood.add("6");
-ped.availableExits.remove("6");]]></Code>
+								<Code><![CDATA[ped.takenFood.add(6);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -3246,13 +3257,13 @@ ped.availableExits.remove("6");]]></Code>
 						<Parameter>
 							<Name><![CDATA[probability1]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[0.5]]></Code>
+								<Code><![CDATA[0.7]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[probability2]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[0.5]]></Code>
+								<Code><![CDATA[0.3]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -3408,6 +3419,10 @@ ped.availableExits.remove("6");]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[ped.inSouthHall = true;
+southHallCount = southHallCount+1;]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onBeginWait]]></Name>
@@ -3543,9 +3558,6 @@ ped.availableExits.remove("6");]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit3]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[ped.wantToDrink = false;]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit4]]></Name>
@@ -3714,9 +3726,9 @@ ped.availableExits.remove("6");]]></Code>
 							<Value Class="CodeValue">
 								<Code><![CDATA[//!(QueueEndCheckingNode.getNumberOfAdmittedAgents()==0);
 
-(foodService1.queueSize(queueFSLine1)>20) ||
-(foodService3.queueSize(queueFSLine2)>20) ||
-(foodService2.queueSize(queueFSLine3)>20) ||
+(foodService1.queueSize(queueFS1_Line2)>20) ||
+(foodService2.queueSize(queueFS2_Line2)>20) ||
+(foodService3.queueSize(queueFSLine3)>20) ||
 (selfService1.queueSize(queueSSLine1)>20) ||
 (selfService2.queueSize(queueSSLine2)>20) ||
 (selfService3.queueSize(queueSSLine3)>20) ]]></Code>
@@ -4747,7 +4759,7 @@ ped.availableExits.remove("6");]]></Code>
 				<QueueLine>
 					<Id>1687628056352</Id>
 					<Name><![CDATA[queueDrinksLine1]]></Name>
-					<X>1511</X><Y>545</Y>
+					<X>1510</X><Y>555</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4759,14 +4771,95 @@ ped.availableExits.remove("6");]]></Code>
 					<Capacity><![CDATA[10]]></Capacity>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-25</X><Y>0</Y></Point>
+						<Point><X>22.978625750451446</X><Y>9.847982464479191</Y></Point>
+						<Point><X>23.211917272131487</X><Y>9.284766908852593</Y></Point>
+						<Point><X>19.31</X><Y>7.724</Y></Point>
+						<Point><X>-3.902</X><Y>-1.561</Y></Point>
+						<Point><X>42.522</X><Y>17.009</Y></Point>
+						<Point><X>25</X><Y>10</Y></Point>
+						<Point><X>1.788</X><Y>0.715</Y></Point>
+						<Point><X>47.361</X><Y>21.18</Y></Point>
+						<Point><X>35</X><Y>15</Y></Point>
+						<Point><X>12.639</X><Y>3.82</Y></Point>
+						<Point><X>12.021</X><Y>5.152</Y></Point>
+					</Points>
+					<ExceededQueuePolicy>EXTEND_QUEUE_TO_THE_FREE_SPACE</ExceededQueuePolicy>
+				</QueueLine>
+				<QueueLine>
+					<Id>1688033544472</Id>
+					<Name><![CDATA[queueDrinksLine2]]></Name>
+					<X>1540</X><Y>560</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<Reversed>false</Reversed>
+					<LimitedCapacity>false</LimitedCapacity>
+					<Capacity><![CDATA[10]]></Capacity>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>23.717082451262847</X><Y>7.905694150420948</Y></Point>
 						<Point><X>25</X><Y>0</Y></Point>
-						<Point><X>39</X><Y>0</Y></Point>
-						<Point><X>14</X><Y>0</Y></Point>
-						<Point><X>62.408</X><Y>8.777999999999999</Y></Point>
-						<Point><X>79</X><Y>15</Y></Point>
-						<Point><X>55.5920000000001</X><Y>6.22199999999998</Y></Point>
-						<Point><X>104</X><Y>15</Y></Point>
+						<Point><X>25</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>45</X><Y>15</Y></Point>
+						<Point><X>45</X><Y>15</Y></Point>
+						<Point><X>25</X><Y>0</Y></Point>
+						<Point><X>21.283</X><Y>7.094</Y></Point>
+					</Points>
+					<ExceededQueuePolicy>EXTEND_QUEUE_TO_THE_FREE_SPACE</ExceededQueuePolicy>
+				</QueueLine>
+				<QueueLine>
+					<Id>1688033594788</Id>
+					<Name><![CDATA[queueDrinksLine3]]></Name>
+					<X>1580</X><Y>560</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<Reversed>false</Reversed>
+					<LimitedCapacity>false</LimitedCapacity>
+					<Capacity><![CDATA[10]]></Capacity>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>22.978625750451446</X><Y>9.847982464479191</Y></Point>
+						<Point><X>22.361</X><Y>11.18</Y></Point>
+						<Point><X>20</X><Y>10</Y></Point>
+						<Point><X>-2.361</X><Y>-1.18</Y></Point>
+						<Point><X>43.717</X><Y>17.906</Y></Point>
+						<Point><X>35</X><Y>15</Y></Point>
+						<Point><X>11.283</X><Y>7.094</Y></Point>
+						<Point><X>12.021</X><Y>5.152</Y></Point>
+					</Points>
+					<ExceededQueuePolicy>EXTEND_QUEUE_TO_THE_FREE_SPACE</ExceededQueuePolicy>
+				</QueueLine>
+				<QueueLine>
+					<Id>1688033618577</Id>
+					<Name><![CDATA[queueDrinksLine4]]></Name>
+					<X>1605</X><Y>560</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<Reversed>false</Reversed>
+					<LimitedCapacity>false</LimitedCapacity>
+					<Capacity><![CDATA[10]]></Capacity>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>24.038</X><Y>6.868</Y></Point>
+						<Point><X>23.212</X><Y>9.285</Y></Point>
+						<Point><X>25</X><Y>10</Y></Point>
+						<Point><X>1.788</X><Y>0.715</Y></Point>
+						<Point><X>50</X><Y>10</Y></Point>
+						<Point><X>35</X><Y>10</Y></Point>
+						<Point><X>10</X><Y>10</Y></Point>
+						<Point><X>10.962</X><Y>3.132</Y></Point>
 					</Points>
 					<ExceededQueuePolicy>EXTEND_QUEUE_TO_THE_FREE_SPACE</ExceededQueuePolicy>
 				</QueueLine>
@@ -4807,7 +4900,7 @@ ped.availableExits.remove("6");]]></Code>
 					<ServiceColor>-16744448</ServiceColor>
 					<Id>1686867288938</Id>
 					<Name><![CDATA[selfFoodServiceArea1]]></Name>
-					<X>1684</X><Y>457</Y>
+					<X>1684</X><Y>462</Y>
 					<Label><X>-99</X><Y>-22</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4906,7 +4999,7 @@ ped.availableExits.remove("6");]]></Code>
 				<ServicePoint>
 					<Id>1686867288944</Id>
 					<Name><![CDATA[servicePoint5]]></Name>
-					<X>1604</X><Y>457</Y>
+					<X>1604</X><Y>462</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4920,7 +5013,7 @@ ped.availableExits.remove("6");]]></Code>
 				<ServicePoint>
 					<Id>1686867288946</Id>
 					<Name><![CDATA[servicePoint6]]></Name>
-					<X>1604</X><Y>437</Y>
+					<X>1604</X><Y>442</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4934,7 +5027,7 @@ ped.availableExits.remove("6");]]></Code>
 				<ServicePoint>
 					<Id>1686867306717</Id>
 					<Name><![CDATA[servicePoint7]]></Name>
-					<X>1604</X><Y>477</Y>
+					<X>1604</X><Y>482</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4946,9 +5039,9 @@ ped.availableExits.remove("6");]]></Code>
 					<Rotation>180</Rotation>
 				</ServicePoint>
 				<QueueLine>
-					<Id>1687628047767</Id>
-					<Name><![CDATA[queueSSLine1]]></Name>
-					<X>1509</X><Y>530</Y>
+					<Id>1688033767727</Id>
+					<Name><![CDATA[queueSS1_Line2]]></Name>
+					<X>1645</X><Y>445</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4960,20 +5053,57 @@ ped.availableExits.remove("6");]]></Code>
 					<Capacity><![CDATA[10]]></Capacity>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>43.45</X><Y>0.8499999999999996</Y></Point>
-						<Point><X>24.96</X><Y>-1.42</Y></Point>
-						<Point><X>42.2</X><Y>-2.4000000000000004</Y></Point>
-						<Point><X>17.24</X><Y>-0.9800000000000004</Y></Point>
-						<Point><X>66.902</X><Y>-6.247</Y></Point>
-						<Point><X>91</X><Y>-10</Y></Point>
-						<Point><X>66.298</X><Y>-6.15300000000002</Y></Point>
-						<Point><X>108.67800000000011</X><Y>-27.677999999999997</Y></Point>
-						<Point><X>111</X><Y>-30</Y></Point>
-						<Point><X>93.32199999999989</X><Y>-12.322000000000003</Y></Point>
-						<Point><X>111</X><Y>-55</Y></Point>
-						<Point><X>111</X><Y>-70</Y></Point>
-						<Point><X>111</X><Y>-45</Y></Point>
-						<Point><X>86</X><Y>-70</Y></Point>
+						<Point><X>-60</X><Y>0</Y></Point>
+						<Point><X>-22.361</X><Y>11.18</Y></Point>
+						<Point><X>-30</X><Y>15</Y></Point>
+						<Point><X>-7.639</X><Y>3.82</Y></Point>
+						<Point><X>-55</X><Y>15</Y></Point>
+					</Points>
+					<ExceededQueuePolicy>EXTEND_QUEUE_TO_THE_FREE_SPACE</ExceededQueuePolicy>
+				</QueueLine>
+				<QueueLine>
+					<Id>1688033768972</Id>
+					<Name><![CDATA[queueSS1_Line3]]></Name>
+					<X>1640</X><Y>430</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<Reversed>false</Reversed>
+					<LimitedCapacity>false</LimitedCapacity>
+					<Capacity><![CDATA[10]]></Capacity>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-60</X><Y>0</Y></Point>
+						<Point><X>-23.212</X><Y>9.285</Y></Point>
+						<Point><X>-25</X><Y>10</Y></Point>
+						<Point><X>-1.788</X><Y>0.715</Y></Point>
+						<Point><X>-50</X><Y>10</Y></Point>
+					</Points>
+					<ExceededQueuePolicy>EXTEND_QUEUE_TO_THE_FREE_SPACE</ExceededQueuePolicy>
+				</QueueLine>
+				<QueueLine>
+					<Id>1688033819188</Id>
+					<Name><![CDATA[queueSS1_Line1]]></Name>
+					<X>1645</X><Y>460</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<Reversed>false</Reversed>
+					<LimitedCapacity>false</LimitedCapacity>
+					<Capacity><![CDATA[10]]></Capacity>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-60</X><Y>0</Y></Point>
+						<Point><X>-20.801000000000002</X><Y>13.868</Y></Point>
+						<Point><X>-30</X><Y>20</Y></Point>
+						<Point><X>-9.199</X><Y>6.132</Y></Point>
+						<Point><X>-55</X><Y>20</Y></Point>
 					</Points>
 					<ExceededQueuePolicy>EXTEND_QUEUE_TO_THE_FREE_SPACE</ExceededQueuePolicy>
 				</QueueLine>
@@ -5159,8 +5289,8 @@ ped.availableExits.remove("6");]]></Code>
 				</ServicePoint>
 				<QueueLine>
 					<Id>1687627946707</Id>
-					<Name><![CDATA[queueFSLine1]]></Name>
-					<X>1511</X><Y>542</Y>
+					<Name><![CDATA[queueFS1_Line2]]></Name>
+					<X>1525</X><Y>545</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5173,13 +5303,42 @@ ped.availableExits.remove("6");]]></Code>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
 						<Point><X>41.5</X><Y>-0.25</Y></Point>
-						<Point><X>24.967</X><Y>-1.2800000000000002</Y></Point>
-						<Point><X>39</X><Y>-2</Y></Point>
-						<Point><X>14.033000000000001</X><Y>-0.7199999999999998</Y></Point>
-						<Point><X>63.926</X><Y>-3.917</Y></Point>
-						<Point><X>169</X><Y>-12</Y></Point>
-						<Point><X>144.07400000000007</X><Y>-10.08299999999997</Y></Point>
-						<Point><X>194</X><Y>-12</Y></Point>
+						<Point><X>24.965000000000003</X><Y>-1.314</Y></Point>
+						<Point><X>95</X><Y>-5</Y></Point>
+						<Point><X>70.035</X><Y>-3.686</Y></Point>
+						<Point><X>119.749</X><Y>-8.536</Y></Point>
+						<Point><X>130</X><Y>-10</Y></Point>
+						<Point><X>105.251</X><Y>-6.464</Y></Point>
+						<Point><X>149.522</X><Y>-25.617</Y></Point>
+						<Point><X>155</X><Y>-30</Y></Point>
+						<Point><X>135.478</X><Y>-14.383</Y></Point>
+						<Point><X>180</X><Y>-30</Y></Point>
+					</Points>
+					<ExceededQueuePolicy>EXTEND_QUEUE_TO_THE_FREE_SPACE</ExceededQueuePolicy>
+				</QueueLine>
+				<QueueLine>
+					<Id>1688031926390</Id>
+					<Name><![CDATA[queueFS1_Line1]]></Name>
+					<X>1515</X><Y>550</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<Reversed>false</Reversed>
+					<LimitedCapacity>false</LimitedCapacity>
+					<Capacity><![CDATA[10]]></Capacity>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>41.5</X><Y>-0.25</Y></Point>
+						<Point><X>25</X><Y>0</Y></Point>
+						<Point><X>70</X><Y>0</Y></Point>
+						<Point><X>45</X><Y>0</Y></Point>
+						<Point><X>94.969</X><Y>-1.248</Y></Point>
+						<Point><X>170</X><Y>-5</Y></Point>
+						<Point><X>145.031</X><Y>-3.752</Y></Point>
+						<Point><X>195</X><Y>-5</Y></Point>
 					</Points>
 					<ExceededQueuePolicy>EXTEND_QUEUE_TO_THE_FREE_SPACE</ExceededQueuePolicy>
 				</QueueLine>
@@ -5327,8 +5486,37 @@ ped.availableExits.remove("6");]]></Code>
 				</ServicePoint>
 				<QueueLine>
 					<Id>1687627988670</Id>
-					<Name><![CDATA[queueFSLine2]]></Name>
-					<X>1509</X><Y>540</Y>
+					<Name><![CDATA[queueFS2_Line2]]></Name>
+					<X>1527</X><Y>533</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<Reversed>false</Reversed>
+					<LimitedCapacity>false</LimitedCapacity>
+					<Capacity><![CDATA[10]]></Capacity>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>20.931</X><Y>-13.671</Y></Point>
+						<Point><X>24.987</X><Y>-0.806</Y></Point>
+						<Point><X>93</X><Y>-3</Y></Point>
+						<Point><X>68.013</X><Y>-2.194</Y></Point>
+						<Point><X>112.522</X><Y>-18.617</Y></Point>
+						<Point><X>143</X><Y>-43</Y></Point>
+						<Point><X>123.47800000000001</X><Y>-27.383000000000003</Y></Point>
+						<Point><X>152.848</X><Y>-65.979</Y></Point>
+						<Point><X>173</X><Y>-113</Y></Point>
+						<Point><X>163.152</X><Y>-90.021</Y></Point>
+						<Point><X>152.06936784057643</X><Y>-99.32854662419155</Y></Point>
+					</Points>
+					<ExceededQueuePolicy>EXTEND_QUEUE_TO_THE_FREE_SPACE</ExceededQueuePolicy>
+				</QueueLine>
+				<QueueLine>
+					<Id>1688032226098</Id>
+					<Name><![CDATA[queueFS2_Line1]]></Name>
+					<X>1530</X><Y>540</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5341,22 +5529,19 @@ ped.availableExits.remove("6");]]></Code>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
 						<Point><X>-22</X><Y>-2</Y></Point>
-						<Point><X>24.986</X><Y>-0.833</Y></Point>
-						<Point><X>30</X><Y>-1</Y></Point>
-						<Point><X>5.014</X><Y>-0.167</Y></Point>
-						<Point><X>54.749</X><Y>-4.536</Y></Point>
-						<Point><X>41.667</X><Y>-2.667</Y></Point>
-						<Point><X>16.918</X><Y>0.869</Y></Point>
-						<Point><X>66.528</X><Y>-5.296</Y></Point>
-						<Point><X>111</X><Y>-10</Y></Point>
-						<Point><X>86.1389999999999</X><Y>-7.3700000000000045</Y></Point>
-						<Point><X>130.52199999999993</X><Y>-25.616999999999962</Y></Point>
-						<Point><X>161</X><Y>-50</Y></Point>
-						<Point><X>141.47800000000007</X><Y>-34.38299999999998</Y></Point>
-						<Point><X>168.90599999999995</X><Y>-73.71699999999998</Y></Point>
-						<Point><X>181</X><Y>-110</Y></Point>
-						<Point><X>173.09400000000005</X><Y>-86.28300000000002</Y></Point>
-						<Point><X>206</X><Y>-110</Y></Point>
+						<Point><X>24.961508830135312</X><Y>-1.3867504905630728</Y></Point>
+						<Point><X>90</X><Y>-5</Y></Point>
+						<Point><X>65.03849116986468</X><Y>-3.613249509436927</Y></Point>
+						<Point><X>110.80099999999999</X><Y>-18.868000000000002</Y></Point>
+						<Point><X>105</X><Y>-15</Y></Point>
+						<Point><X>84.199</X><Y>-1.1320000000000014</Y></Point>
+						<Point><X>125.80099999999999</X><Y>-28.868000000000002</Y></Point>
+						<Point><X>135</X><Y>-35</Y></Point>
+						<Point><X>114.19900000000001</X><Y>-21.131999999999998</Y></Point>
+						<Point><X>148.422</X><Y>-56.092</Y></Point>
+						<Point><X>170</X><Y>-90</Y></Point>
+						<Point><X>156.578</X><Y>-68.908</Y></Point>
+						<Point><X>195</X><Y>-90</Y></Point>
 					</Points>
 					<ExceededQueuePolicy>EXTEND_QUEUE_TO_THE_FREE_SPACE</ExceededQueuePolicy>
 				</QueueLine>
@@ -5477,7 +5662,7 @@ ped.availableExits.remove("6");]]></Code>
 				<ServicePoint>
 					<Id>1686867651191</Id>
 					<Name><![CDATA[servicePoint12]]></Name>
-					<X>1660</X><Y>400</Y>
+					<X>1650</X><Y>360</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5489,9 +5674,9 @@ ped.availableExits.remove("6");]]></Code>
 					<Rotation>270</Rotation>
 				</ServicePoint>
 				<QueueLine>
-					<Id>1687628002123</Id>
-					<Name><![CDATA[queueFSLine3]]></Name>
-					<X>1509</X><Y>538</Y>
+					<Id>1688033447393</Id>
+					<Name><![CDATA[queueFS3_Line1]]></Name>
+					<X>1527</X><Y>525</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5503,26 +5688,20 @@ ped.availableExits.remove("6");]]></Code>
 					<Capacity><![CDATA[10]]></Capacity>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-18.5</X><Y>1.5</Y></Point>
-						<Point><X>24.984</X><Y>-0.892</Y></Point>
-						<Point><X>28</X><Y>-1</Y></Point>
-						<Point><X>3.016</X><Y>-0.108</Y></Point>
-						<Point><X>52.929</X><Y>-2.881</Y></Point>
-						<Point><X>41.25</X><Y>-2</Y></Point>
-						<Point><X>16.321</X><Y>-0.119</Y></Point>
-						<Point><X>66.074</X><Y>-4.96</Y></Point>
-						<Point><X>108.333</X><Y>-10</Y></Point>
-						<Point><X>83.509</X><Y>-7.04</Y></Point>
-						<Point><X>125.376</X><Y>-28.29</Y></Point>
-						<Point><X>135.667</X><Y>-39.333</Y></Point>
-						<Point><X>118.623</X><Y>-21.043</Y></Point>
-						<Point><X>133.684</X><Y>-64.255</Y></Point>
-						<Point><X>131</X><Y>-98</Y></Point>
-						<Point><X>132.982</X><Y>-73.079</Y></Point>
-						<Point><X>144.868</X><Y>-118.801</Y></Point>
-						<Point><X>151</X><Y>-128</Y></Point>
-						<Point><X>137.132</X><Y>-107.199</Y></Point>
-						<Point><X>151</X><Y>-153</Y></Point>
+						<Point><X>0</X><Y>-60</Y></Point>
+						<Point><X>25</X><Y>0</Y></Point>
+						<Point><X>78</X><Y>0</Y></Point>
+						<Point><X>53</X><Y>0</Y></Point>
+						<Point><X>96.685</X><Y>-16.609</Y></Point>
+						<Point><X>123</X><Y>-40</Y></Point>
+						<Point><X>104.315</X><Y>-23.391</Y></Point>
+						<Point><X>127.11000000000001</X><Y>-64.66</Y></Point>
+						<Point><X>128</X><Y>-70</Y></Point>
+						<Point><X>123.88999999999999</X><Y>-45.34</Y></Point>
+						<Point><X>126.441</X><Y>-94.951</Y></Point>
+						<Point><X>123</X><Y>-150</Y></Point>
+						<Point><X>124.559</X><Y>-125.049</Y></Point>
+						<Point><X>123</X><Y>-175</Y></Point>
 					</Points>
 					<ExceededQueuePolicy>EXTEND_QUEUE_TO_THE_FREE_SPACE</ExceededQueuePolicy>
 				</QueueLine>
@@ -5544,7 +5723,7 @@ ped.availableExits.remove("6");]]></Code>
 					<ServiceColor>-16744448</ServiceColor>
 					<Id>1686867722973</Id>
 					<Name><![CDATA[selfFoodServiceArea2]]></Name>
-					<X>1530</X><Y>368</Y>
+					<X>1510</X><Y>368</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5643,7 +5822,7 @@ ped.availableExits.remove("6");]]></Code>
 				<ServicePoint>
 					<Id>1686867722977</Id>
 					<Name><![CDATA[servicePoint13]]></Name>
-					<X>1610</X><Y>360</Y>
+					<X>1590</X><Y>360</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5655,9 +5834,9 @@ ped.availableExits.remove("6");]]></Code>
 					<Rotation>270</Rotation>
 				</ServicePoint>
 				<QueueLine>
-					<Id>1687628038497</Id>
-					<Name><![CDATA[queueSSLine2]]></Name>
-					<X>1508</X><Y>535</Y>
+					<Id>1688032676814</Id>
+					<Name><![CDATA[queueSS2_Line1]]></Name>
+					<X>1630</X><Y>405</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5669,23 +5848,11 @@ ped.availableExits.remove("6");]]></Code>
 					<Capacity><![CDATA[10]]></Capacity>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-19.333</X><Y>2</Y></Point>
-						<Point><X>24.971</X><Y>-1.199</Y></Point>
-						<Point><X>41.667</X><Y>-2</Y></Point>
-						<Point><X>16.695999999999998</X><Y>-0.8009999999999999</Y></Point>
-						<Point><X>66.53</X><Y>-4.609999999999999</Y></Point>
-						<Point><X>102</X><Y>-8.333</Y></Point>
-						<Point><X>77.137</X><Y>-5.723</Y></Point>
-						<Point><X>120.685</X><Y>-24.942</Y></Point>
-						<Point><X>132</X><Y>-35</Y></Point>
-						<Point><X>113.31500000000005</X><Y>-18.390999999999963</Y></Point>
-						<Point><X>128.46399999999994</X><Y>-59.749000000000024</Y></Point>
-						<Point><X>122</X><Y>-105</Y></Point>
-						<Point><X>125.53600000000006</X><Y>-80.25099999999998</Y></Point>
-						<Point><X>112.71499999999992</X><Y>-128.212</Y></Point>
-						<Point><X>102</X><Y>-155</Y></Point>
-						<Point><X>111.28500000000008</X><Y>-131.788</Y></Point>
-						<Point><X>102</X><Y>-180</Y></Point>
+						<Point><X>0</X><Y>-60</Y></Point>
+						<Point><X>-18.844</X><Y>-16.428</Y></Point>
+						<Point><X>-39</X><Y>-34</Y></Point>
+						<Point><X>-20.156</X><Y>-17.572</Y></Point>
+						<Point><X>-39</X><Y>-59</Y></Point>
 					</Points>
 					<ExceededQueuePolicy>EXTEND_QUEUE_TO_THE_FREE_SPACE</ExceededQueuePolicy>
 				</QueueLine>
@@ -5832,9 +5999,9 @@ ped.availableExits.remove("6");]]></Code>
 					<Rotation>270</Rotation>
 				</ServicePoint>
 				<QueueLine>
-					<Id>1687628009734</Id>
-					<Name><![CDATA[queueLine6]]></Name>
-					<X>1509</X><Y>533</Y>
+					<Id>1688032570859</Id>
+					<Name><![CDATA[queueLine2]]></Name>
+					<X>1545</X><Y>415</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5846,36 +6013,18 @@ ped.availableExits.remove("6");]]></Code>
 					<Capacity><![CDATA[10]]></Capacity>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-21</X><Y>2</Y></Point>
-						<Point><X>24.99</X><Y>-0.6989999999999998</Y></Point>
-						<Point><X>35.75</X><Y>-1</Y></Point>
-						<Point><X>10.76</X><Y>-0.30100000000000016</Y></Point>
-						<Point><X>60.493</X><Y>-4.573</Y></Point>
-						<Point><X>105</X><Y>-11</Y></Point>
-						<Point><X>80.257</X><Y>-7.427</Y></Point>
-						<Point><X>123.035</X><Y>-28.313</Y></Point>
-						<Point><X>130</X><Y>-35</Y></Point>
-						<Point><X>111.96499999999992</X><Y>-17.687000000000012</Y></Point>
-						<Point><X>124.08300000000008</X><Y>-59.29000000000002</Y></Point>
-						<Point><X>111</X><Y>-113</Y></Point>
-						<Point><X>116.91699999999992</X><Y>-88.70999999999998</Y></Point>
-						<Point><X>88.6389999999999</X><Y>-124.18</Y></Point>
-						<Point><X>91</X><Y>-123</Y></Point>
-						<Point><X>113.36099999999988</X><Y>-111.82</Y></Point>
-						<Point><X>66</X><Y>-123</Y></Point>
-						<Point><X>31</X><Y>-123</Y></Point>
-						<Point><X>56</X><Y>-123</Y></Point>
-						<Point><X>6.4849999999999</X><Y>-118.09699999999998</Y></Point>
-						<Point><X>-19</X><Y>-113</Y></Point>
-						<Point><X>5.5150000000001</X><Y>-117.90300000000002</Y></Point>
-						<Point><X>-19</X><Y>-88</Y></Point>
+						<Point><X>0</X><Y>60</Y></Point>
+						<Point><X>-25</X><Y>0</Y></Point>
+						<Point><X>-50</X><Y>0</Y></Point>
+						<Point><X>-25</X><Y>0</Y></Point>
+						<Point><X>-50</X><Y>25</Y></Point>
 					</Points>
 					<ExceededQueuePolicy>EXTEND_QUEUE_TO_THE_FREE_SPACE</ExceededQueuePolicy>
 				</QueueLine>
 				<QueueLine>
-					<Id>1687628010073</Id>
-					<Name><![CDATA[queueLine7]]></Name>
-					<X>1509</X><Y>537</Y>
+					<Id>1688032571722</Id>
+					<Name><![CDATA[queueLine3]]></Name>
+					<X>1560</X><Y>370</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5887,29 +6036,11 @@ ped.availableExits.remove("6");]]></Code>
 					<Capacity><![CDATA[10]]></Capacity>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-20</X><Y>4</Y></Point>
-						<Point><X>24.97</X><Y>-1.218</Y></Point>
-						<Point><X>41</X><Y>-2</Y></Point>
-						<Point><X>16.03</X><Y>-0.782</Y></Point>
-						<Point><X>65.648</X><Y>-6.178</Y></Point>
-						<Point><X>100</X><Y>-12</Y></Point>
-						<Point><X>75.352</X><Y>-7.822</Y></Point>
-						<Point><X>116.065</X><Y>-31.155</Y></Point>
-						<Point><X>126</X><Y>-43</Y></Point>
-						<Point><X>109.93499999999995</X><Y>-23.845000000000027</Y></Point>
-						<Point><X>121.68000000000006</X><Y>-67.62400000000002</Y></Point>
-						<Point><X>116</X><Y>-100</Y></Point>
-						<Point><X>120.31999999999994</X><Y>-75.37599999999998</Y></Point>
-						<Point><X>108.94599999999991</X><Y>-123.98399999999998</Y></Point>
-						<Point><X>111</X><Y>-117</Y></Point>
-						<Point><X>118.05400000000009</X><Y>-93.01600000000002</Y></Point>
-						<Point><X>95.38300000000004</X><Y>-136.522</Y></Point>
-						<Point><X>71</X><Y>-167</Y></Point>
-						<Point><X>86.61699999999996</X><Y>-147.478</Y></Point>
-						<Point><X>46</X><Y>-167</Y></Point>
-						<Point><X>11</X><Y>-167</Y></Point>
-						<Point><X>36</X><Y>-167</Y></Point>
-						<Point><X>11</X><Y>-142</Y></Point>
+						<Point><X>0</X><Y>60</Y></Point>
+						<Point><X>-25</X><Y>0</Y></Point>
+						<Point><X>-45</X><Y>0</Y></Point>
+						<Point><X>-20</X><Y>0</Y></Point>
+						<Point><X>-45</X><Y>25</Y></Point>
 					</Points>
 					<ExceededQueuePolicy>EXTEND_QUEUE_TO_THE_FREE_SPACE</ExceededQueuePolicy>
 				</QueueLine>
@@ -11954,7 +12085,7 @@ ped.availableExits.remove("6");]]></Code>
 					<ServiceColor>-16744448</ServiceColor>
 					<Id>1686904232361</Id>
 					<Name><![CDATA[selfFoodServiceArea3]]></Name>
-					<X>1480</X><Y>440</Y>
+					<X>1460</X><Y>440</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -12079,9 +12210,9 @@ ped.availableExits.remove("6");]]></Code>
 					<Rotation>90</Rotation>
 				</ServicePoint>
 				<QueueLine>
-					<Id>1687627970392</Id>
-					<Name><![CDATA[queueSSLine3]]></Name>
-					<X>1509</X><Y>531</Y>
+					<Id>1688033337515</Id>
+					<Name><![CDATA[queueSS3_Line2]]></Name>
+					<X>1600</X><Y>405</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -12093,29 +12224,37 @@ ped.availableExits.remove("6");]]></Code>
 					<Capacity><![CDATA[10]]></Capacity>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-17.678</X><Y>-17.678</Y></Point>
-						<Point><X>24.993</X><Y>-0.6100000000000003</Y></Point>
-						<Point><X>41</X><Y>-1</Y></Point>
-						<Point><X>16.007</X><Y>-0.3899999999999997</Y></Point>
-						<Point><X>65.66</X><Y>-5.109999999999999</Y></Point>
-						<Point><X>101</X><Y>-11</Y></Point>
-						<Point><X>76.33999999999992</X><Y>-6.889999999999986</Y></Point>
-						<Point><X>118.67799999999988</X><Y>-28.677999999999997</Y></Point>
-						<Point><X>121</X><Y>-31</Y></Point>
-						<Point><X>103.32200000000012</X><Y>-13.322000000000003</Y></Point>
-						<Point><X>121</X><Y>-56</Y></Point>
-						<Point><X>121</X><Y>-71</Y></Point>
-						<Point><X>121</X><Y>-46</Y></Point>
-						<Point><X>109.81999999999994</X><Y>-93.36099999999999</Y></Point>
-						<Point><X>101</X><Y>-111</Y></Point>
-						<Point><X>112.18000000000006</X><Y>-88.63900000000001</Y></Point>
-						<Point><X>76</X><Y>-111</Y></Point>
-						<Point><X>91</X><Y>-111</Y></Point>
-						<Point><X>116</X><Y>-111</Y></Point>
-						<Point><X>66</X><Y>-111</Y></Point>
-						<Point><X>51</X><Y>-111</Y></Point>
-						<Point><X>76</X><Y>-111</Y></Point>
-						<Point><X>51</X><Y>-86</Y></Point>
+						<Point><X>0</X><Y>60</Y></Point>
+						<Point><X>-24.515</X><Y>4.903</Y></Point>
+						<Point><X>-25</X><Y>5</Y></Point>
+						<Point><X>-0.485</X><Y>0.097</Y></Point>
+						<Point><X>-46.437</X><Y>17.862</Y></Point>
+						<Point><X>-50</X><Y>20</Y></Point>
+						<Point><X>-28.563</X><Y>7.138</Y></Point>
+						<Point><X>-50</X><Y>45</Y></Point>
+					</Points>
+					<ExceededQueuePolicy>EXTEND_QUEUE_TO_THE_FREE_SPACE</ExceededQueuePolicy>
+				</QueueLine>
+				<QueueLine>
+					<Id>1688033338517</Id>
+					<Name><![CDATA[queueSS3_Line1]]></Name>
+					<X>1610</X><Y>420</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<Reversed>false</Reversed>
+					<LimitedCapacity>false</LimitedCapacity>
+					<Capacity><![CDATA[10]]></Capacity>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>60</Y></Point>
+						<Point><X>-25</X><Y>0</Y></Point>
+						<Point><X>-35</X><Y>0</Y></Point>
+						<Point><X>-10</X><Y>0</Y></Point>
+						<Point><X>-35</X><Y>25</Y></Point>
 					</Points>
 					<ExceededQueuePolicy>EXTEND_QUEUE_TO_THE_FREE_SPACE</ExceededQueuePolicy>
 				</QueueLine>
@@ -12250,14 +12389,14 @@ ped.availableExits.remove("6");]]></Code>
 					</RecurrenceCode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Width>260</Width>
-					<Height>510</Height>
+					<Height>500</Height>
 					<BackgroundColor/>
 					<BorderColor/>
 					<ChartArea>
 						<XOffset>50</XOffset>
 						<YOffset>30</YOffset>
 						<Width>180</Width>
-						<Height>330</Height>
+						<Height>320</Height>
 						<BackgroundColor>-1</BackgroundColor>
 						<BorderColor>-16777216</BorderColor>
 						<GridColor>-12566464</GridColor>
@@ -12275,37 +12414,37 @@ ped.availableExits.remove("6");]]></Code>
 					<ShowLegend>true</ShowLegend>
 					<DataItem>
 					<Id>1687565431570</Id>
-					<Expression><![CDATA[foodServiceArea1.queueSize(queueFSLine1)]]></Expression>
+					<Expression><![CDATA[foodServiceArea1.queueSize(queueFS1_Line1) + foodServiceArea1.queueSize(queueFS1_Line2)]]></Expression>
 					<Color>-32944</Color>
 						<Title><![CDATA[foodService1]]></Title>
 					</DataItem>
 					<DataItem>
 					<Id>1687565872220</Id>
-					<Expression><![CDATA[foodServiceArea2.queueSize(queueFSLine2)]]></Expression>
+					<Expression><![CDATA[foodServiceArea2.queueSize(queueFS2_Line1) + foodServiceArea2.queueSize(queueFS2_Line2)]]></Expression>
 					<Color>-13447886</Color>
 						<Title><![CDATA[foodService2]]></Title>
 					</DataItem>
 					<DataItem>
 					<Id>1687566060313</Id>
-					<Expression><![CDATA[foodServiceArea3.queueSize(queueFSLine3)]]></Expression>
+					<Expression><![CDATA[foodServiceArea3.queueSize(queueFS3_Line1)]]></Expression>
 					<Color>-9404272</Color>
 						<Title><![CDATA[foodService3]]></Title>
 					</DataItem>
 					<DataItem>
 					<Id>1687566066223</Id>
-					<Expression><![CDATA[selfFoodServiceArea1.queueSize(queueSSLine1)]]></Expression>
+					<Expression><![CDATA[selfFoodServiceArea1.queueSize(queueSS1_Line1) + selfFoodServiceArea1.queueSize(queueSS1_Line2) + selfFoodServiceArea1.queueSize(queueSS1_Line3)]]></Expression>
 					<Color>-7667573</Color>
 						<Title><![CDATA[selfService1]]></Title>
 					</DataItem>
 					<DataItem>
 					<Id>1687566075942</Id>
-					<Expression><![CDATA[selfFoodServiceArea2.queueSize(queueSSLine2)]]></Expression>
+					<Expression><![CDATA[selfFoodServiceArea2.queueSize(queueSS2_Line1)]]></Expression>
 					<Color>-23296</Color>
 						<Title><![CDATA[selfService2]]></Title>
 					</DataItem>
 					<DataItem>
 					<Id>1687566080686</Id>
-					<Expression><![CDATA[selfFoodServiceArea3.queueSize(queueSSLine3)]]></Expression>
+					<Expression><![CDATA[selfFoodServiceArea3.queueSize(queueSS3_Line1) + selfFoodServiceArea3.queueSize(queueSS3_Line2)]]></Expression>
 					<Color>-4343957</Color>
 						<Title><![CDATA[selfService3]]></Title>
 					</DataItem>
@@ -12313,14 +12452,411 @@ ped.availableExits.remove("6");]]></Code>
 					<Id>1687724686635</Id>
 					<Expression><![CDATA[takeTray.queueSize(queueLineMain)+lineOnStairService.queueSize(queueLine1F)]]></Expression>
 					<Color>-12004916</Color>
-						<Title><![CDATA[Main queue]]></Title>
+						<Title><![CDATA[queueForTray]]></Title>
 					</DataItem>
 					<ScaleFromExpression><![CDATA[0]]></ScaleFromExpression>
 					<ScaleToExpression><![CDATA[1]]></ScaleToExpression>
 					<ScaleType>AUTO</ScaleType>
 					<Bars>
 						<Direction>UP</Direction>
+						<RelativeWidth>0.5</RelativeWidth>
+					</Bars>
+    			</BarChart>
+    			<TimePlot>
+					<Id>1688002968399</Id>
+					<Name><![CDATA[EntryAndExitAfterPayment]]></Name>
+					<X>140</X><Y>1600</Y>
+					<Label><X>20</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1688025600000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>260</Width>
+					<Height>210</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>20</YOffset>
+						<Width>180</Width>
+						<Height>110</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>50</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
+					<TimeWindowUnits>MODEL_TIME_UNIT</TimeWindowUnits>
+					<VerScaleFromExpression><![CDATA[0]]></VerScaleFromExpression>
+					<VerScaleToExpression><![CDATA[1]]></VerScaleToExpression>
+					<VerScaleType>AUTO</VerScaleType>
+					<DrawLine>true</DrawLine>
+					<Interpolation>LINEAR</Interpolation>
+					<DatasetExpression>  
+						<Title><![CDATA[EntryCount]]></Title>
+					<Id>1688002969896</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-2448096</Color>
+					<Expression2><![CDATA[takeTray.countPeds()]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>
+						<PointStyle>NONE</PointStyle>
+						<LineWidth>1.0</LineWidth>
+					</DatasetExpression>
+					<DatasetExpression>  
+						<Title><![CDATA[ExitAfterPaymentCount]]></Title>
+					<Id>1688005924679</Id>
+					<Expression><![CDATA[my_dataset1]]></Expression>
+					<Color>-65536</Color>
+					<Expression2><![CDATA[checkoutService.countPeds()]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>
+						<PointStyle>NONE</PointStyle>
+						<LineWidth>1.0</LineWidth>
+					</DatasetExpression>
+					<SamplesToKeep>10000</SamplesToKeep>
+					<TimeWindowExpression><![CDATA[100]]></TimeWindowExpression>
+					<FillAreaUnderLine>false</FillAreaUnderLine>
+					<LabelFormat>MODEL_TIME_UNITS</LabelFormat>
+    			</TimePlot>
+    			<BarChart>
+					<Id>1688006604328</Id>
+					<Name><![CDATA[EntryAndExit]]></Name>
+					<X>420</X><Y>1600</Y>
+					<Label><X>90</X><Y>-20</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1688025600000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>310</Width>
+					<Height>230</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>10</YOffset>
+						<Width>230</Width>
+						<Height>130</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>60</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<DataItem>
+					<Id>1688006605793</Id>
+					<Expression><![CDATA[takeTray.countPeds()]]></Expression>
+					<Color>-16728065</Color>
+						<Title><![CDATA[Students entering]]></Title>
+					</DataItem>
+					<DataItem>
+					<Id>1688006612118</Id>
+					<Expression><![CDATA[checkoutService.countPeds()]]></Expression>
+					<Color>-4565549</Color>
+						<Title><![CDATA[Students exiting after payment]]></Title>
+					</DataItem>
+					<ScaleFromExpression><![CDATA[0]]></ScaleFromExpression>
+					<ScaleToExpression><![CDATA[studSourceSouth.countPeds()]]></ScaleToExpression>
+					<ScaleType>HUNDRED_PERCENTS</ScaleType>
+					<Bars>
+						<Direction>UP</Direction>
 						<RelativeWidth>0.8</RelativeWidth>
+					</Bars>
+    			</BarChart>
+				<DensityMap>
+					<Id>1688008523915</Id>
+					<Name><![CDATA[densityMap]]></Name>
+					<X>790</X><Y>1590</Y>
+					<Label><X>-15</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<Width>10</Width>
+					<Height>200</Height>
+					<Transparency>0.25</Transparency>
+					<CriticalDensity>1.5</CriticalDensity>
+					<Type>PEDESTRIAN</Type>
+					<TimePeriod>COMPLETE</TimePeriod>
+					<WindowTime Class="UnitValue">
+						<Value Class="Double">5</Value>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+					</WindowTime>
+					<DisplayedValue>MAX</DisplayedValue>
+					<EnableAttenuation>true</EnableAttenuation>
+					<ColorScheme>LOGARITHMIC</ColorScheme>
+				</DensityMap>
+    			<BarChart>
+					<Id>1688014279210</Id>
+					<Name><![CDATA[SittingAreas]]></Name>
+					<X>160</X><Y>1870</Y>
+					<Label><X>80</X><Y>-5</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1688025600000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>260</Width>
+					<Height>220</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>30</YOffset>
+						<Width>180</Width>
+						<Height>120</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>40</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<DataItem>
+					<Id>1688014283289</Id>
+					<Expression><![CDATA[westHall.countPeds()]]></Expression>
+					<Color>-6632142</Color>
+						<Title><![CDATA[WestHall]]></Title>
+					</DataItem>
+					<DataItem>
+					<Id>1688014322330</Id>
+					<Expression><![CDATA[southHall.countPeds()]]></Expression>
+					<Color>-14774017</Color>
+						<Title><![CDATA[SouthHall]]></Title>
+					</DataItem>
+					<ScaleFromExpression><![CDATA[0]]></ScaleFromExpression>
+					<ScaleToExpression><![CDATA[studSourceSouth.countPeds()]]></ScaleToExpression>
+					<ScaleType>HUNDRED_PERCENTS</ScaleType>
+					<Bars>
+						<Direction>UP</Direction>
+						<RelativeWidth>0.26</RelativeWidth>
+					</Bars>
+    			</BarChart>
+    			<TimePlot>
+					<Id>1688014978009</Id>
+					<Name><![CDATA[OccupancyPlot]]></Name>
+					<X>460</X><Y>1880</Y>
+					<Label><X>75</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1688025600000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>260</Width>
+					<Height>210</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>30</YOffset>
+						<Width>180</Width>
+						<Height>100</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>50</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
+					<TimeWindowUnits>MODEL_TIME_UNIT</TimeWindowUnits>
+					<VerScaleFromExpression><![CDATA[0]]></VerScaleFromExpression>
+					<VerScaleToExpression><![CDATA[1]]></VerScaleToExpression>
+					<VerScaleType>AUTO</VerScaleType>
+					<DrawLine>true</DrawLine>
+					<Interpolation>LINEAR</Interpolation>
+					<DatasetExpression>  
+						<Title><![CDATA[WestHallOccupancy]]></Title>
+					<Id>1688014982431</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-9404272</Color>
+					<Expression2><![CDATA[westHallCount]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>
+						<PointStyle>NONE</PointStyle>
+						<LineWidth>1.0</LineWidth>
+					</DatasetExpression>
+					<DatasetExpression>  
+						<Title><![CDATA[SouthHallOccupancy]]></Title>
+					<Id>1688015070914</Id>
+					<Expression><![CDATA[my_dataset1]]></Expression>
+					<Color>-7667573</Color>
+					<Expression2><![CDATA[southHallCount]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>
+						<PointStyle>NONE</PointStyle>
+						<LineWidth>1.0</LineWidth>
+					</DatasetExpression>
+					<SamplesToKeep>10000</SamplesToKeep>
+					<TimeWindowExpression><![CDATA[100]]></TimeWindowExpression>
+					<FillAreaUnderLine>false</FillAreaUnderLine>
+					<LabelFormat>MODEL_TIME_UNITS</LabelFormat>
+    			</TimePlot>
+    			<BarChart>
+					<Id>1688025784348</Id>
+					<Name><![CDATA[chart]]></Name>
+					<X>780</X><Y>1870</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1688112000000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>260</Width>
+					<Height>360</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>30</YOffset>
+						<Width>180</Width>
+						<Height>170</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>130</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<DataItem>
+					<Id>1688025788404</Id>
+					<Expression><![CDATA[foodService1.countPeds()]]></Expression>
+					<Color>-16711936</Color>
+						<Title><![CDATA[foodService1]]></Title>
+					</DataItem>
+					<DataItem>
+					<Id>1688025831843</Id>
+					<Expression><![CDATA[foodService2.countPeds()]]></Expression>
+					<Color>-2354116</Color>
+						<Title><![CDATA[foodService2]]></Title>
+					</DataItem>
+					<DataItem>
+					<Id>1688025844819</Id>
+					<Expression><![CDATA[foodService3.countPeds()]]></Expression>
+					<Color>-10496</Color>
+						<Title><![CDATA[foodService3]]></Title>
+					</DataItem>
+					<DataItem>
+					<Id>1688025863741</Id>
+					<Expression><![CDATA[selfService1.countPeds()]]></Expression>
+					<Color>-6632142</Color>
+						<Title><![CDATA[selfService1]]></Title>
+					</DataItem>
+					<DataItem>
+					<Id>1688026124621</Id>
+					<Expression><![CDATA[selfService2.countPeds()]]></Expression>
+					<Color>-14774017</Color>
+						<Title><![CDATA[selfService2]]></Title>
+					</DataItem>
+					<DataItem>
+					<Id>1688026155295</Id>
+					<Expression><![CDATA[selfService3.countPeds()]]></Expression>
+					<Color>-3137392</Color>
+						<Title><![CDATA[selfService3]]></Title>
+					</DataItem>
+					<ScaleFromExpression><![CDATA[0]]></ScaleFromExpression>
+					<ScaleToExpression><![CDATA[1]]></ScaleToExpression>
+					<ScaleType>AUTO</ScaleType>
+					<Bars>
+						<Direction>UP</Direction>
+						<RelativeWidth>0.21</RelativeWidth>
 					</Bars>
     			</BarChart>
 			</Presentation>
@@ -13001,6 +13537,20 @@ ped.availableExits.remove("6");]]></Code>
 
 				</Level>
 			</Presentation>
+			<Areas>
+				<Area>
+					<Id>1688002492536</Id>
+					<Name><![CDATA[Plots]]></Name>
+					<X>120</X><Y>1520</Y>
+					<Label><X>720</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Title><![CDATA[Plots]]></Title>
+					<Width>1620</Width>
+					<Height>1000</Height>
+				</Area>
+			</Areas>
 
 		</ActiveObjectClass>
 		<!--   =========   Active Object Class   ========  -->
@@ -13113,15 +13663,45 @@ ped.availableExits.remove("6");]]></Code>
 					</Properties>
 				</Variable>
 				<Variable Class="PlainVariable">
-					<Id>1688080255603</Id>
-					<Name><![CDATA[studExitNumber]]></Name>
-					<X>270</X><Y>200</Y>
+					<Id>1686868139551</Id>
+					<Name><![CDATA[variable]]></Name>
+					<X>310</X><Y>200</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
-						<Type><![CDATA[int]]></Type>        
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1688017672496</Id>
+					<Name><![CDATA[inSouthHall]]></Name>
+					<X>310</X><Y>290</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[boolean]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[false]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1688017681959</Id>
+					<Name><![CDATA[inWestHall]]></Name>
+					<X>480</X><Y>290</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[boolean]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[false]]></Code>
+						</InitialValue>
 					</Properties>
 				</Variable>
 				<Variable Class="Parameter">
@@ -13191,33 +13771,15 @@ ped.availableExits.remove("6");]]></Code>
 				<Variable Class="CollectionVariable">
 					<Id>1686868150826</Id>
 					<Name><![CDATA[takenFood]]></Name>
-					<X>590</X><Y>200</Y>
+					<X>470</X><Y>200</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
 						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
-						<ElementClass><![CDATA[String]]></ElementClass>
+						<ElementClass><![CDATA[Integer]]></ElementClass>
 						<ValueElementClass><![CDATA[String]]></ValueElementClass>
-					</Properties>
-
-				</Variable>
-				<Variable Class="CollectionVariable">
-					<Id>1688064372390</Id>
-					<Name><![CDATA[availableExits]]></Name>
-					<X>440</X><Y>200</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
-						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
-						<ElementClass><![CDATA[String]]></ElementClass>
-						<ValueElementClass><![CDATA[String]]></ValueElementClass>
-						<CollectionInitializer Class="CodeValue">
-							<Code><![CDATA[{"1","2","3","4","5","6"}]]></Code>
-						</CollectionInitializer>
 					</Properties>
 
 				</Variable>
@@ -13234,20 +13796,6 @@ ped.availableExits.remove("6");]]></Code>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Body><![CDATA[//this.takenFood.size()*timeToEatOneDish;]]></Body>
-				</Function>
-				<Function AccessType="default" StaticFunction="false">
-					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
-					<ReturnType><![CDATA[int]]></ReturnType>
-					<Id>1688064171645</Id>
-					<Name><![CDATA[exitSelection]]></Name>
-					<X>390</X><Y>280</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[int index = uniform_discr(0,availableExits.size()-1);
-return Integer.parseInt(availableExits.get(index));
-]]></Body>
 				</Function>
 			</Functions>
 			<AgentLinks>
