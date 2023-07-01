@@ -111,6 +111,7 @@
 				<Variable Class="PlainVariable">
 					<Id>1688017722731</Id>
 					<Name><![CDATA[southHallCount]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>260</X><Y>1390</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -126,6 +127,7 @@
 				<Variable Class="PlainVariable">
 					<Id>1688017821219</Id>
 					<Name><![CDATA[westHallCount]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>260</X><Y>1450</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -153,7 +155,7 @@
 				<Variable Class="PlainVariable">
 					<Id>1688096113792</Id>
 					<Name><![CDATA[waitingTime]]></Name>
-					<X>720</X><Y>1460</Y>
+					<X>720</X><Y>1390</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -322,6 +324,8 @@
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
 						<Point><X>-30</X><Y>0</Y></Point>
+						<Point><X>-30</X><Y>-50</Y></Point>
+						<Point><X>260</X><Y>-280</Y></Point>
 						<Point><X>260</X><Y>-330</Y></Point>
 						<Point><X>220</X><Y>-330</Y></Point>
 					</Points>
@@ -1470,7 +1474,7 @@
     			<DataSet>
 					<Id>1688094859928</Id>
 					<Name><![CDATA[selAreaWaitTime]]></Name>
-					<X>700</X><Y>1390</Y>
+					<X>720</X><Y>1450</Y>
 					<Label><X>15</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1705,7 +1709,8 @@ if (
 (foodService4.queueSize(queueFSLine4)<25) &&
 (selfService1.queueSize(queueSSLine1)<20) &&
 (selfService2.queueSize(queueSSLine2)<25) &&
-(selfService3.queueSize(queueSSLine3)<25) &&
+(selfService3.queueSize(queueSSLine3_1)<8) &&
+(selfService3.queueSize(queueSSLine3_2)<8) &&
 (selfDrinksServiceArea.queueSize(queueDrinksLine1)<10) 
 ){
 	hold1F.unblock();
@@ -1878,6 +1883,12 @@ if (takeTray.queueSize(queueLineMain) > 27){
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnterQueue]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[if (!ped.isInSelArea){
+	visitorsInSelArea = visitorsInSelArea+1;
+	ped.selAreaEntryTime = time();
+}]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onAtExitQueue]]></Name>
@@ -1894,8 +1905,8 @@ if (takeTray.queueSize(queueLineMain) > 27){
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[visitorsInSelArea = visitorsInSelArea+1;
-ped.selAreaEntryTime = time();]]></Code>
+								<Code><![CDATA[//visitorsInSelArea = visitorsInSelArea+1;
+//ped.selAreaEntryTime = time();]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -2501,8 +2512,9 @@ ped.freeSelectionExits.remove("4")]]></Code>
 							<Value Class="CodeValue">
 								<Code><![CDATA[visitorsInSelArea = visitorsInSelArea-1;
 visitorsInsideArea.add(visitorsInSelArea);
-selAreaWaitTime.add(time()-ped.selAreaEntryTime);
-waitingTime = time() - ped.selAreaEntryTime;]]></Code>
+waitingTime = time() - ped.selAreaEntryTime;
+selAreaWaitTime.add(waitingTime);
+]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -2623,8 +2635,8 @@ waitingTime = time() - ped.selAreaEntryTime;]]></Code>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[ped.inWestHall = true;
-westHallCount = westHallCount+1;]]></Code>
+								<Code><![CDATA[//ped.inWestHall = true;
+//westHallCount = westHallCount+1;]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -2979,7 +2991,7 @@ ped.freeSelectionExits.remove("7");]]></Code>
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[uniform(3, 30)]]></Code>
+								<Code><![CDATA[uniform(5, 60)]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 							</Value>
 						</Parameter>
@@ -3088,7 +3100,7 @@ ped.freeSelectionExits.remove("7");]]></Code>
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[uniform(3, 30)]]></Code>
+								<Code><![CDATA[uniform(5, 60)]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 							</Value>
 						</Parameter>
@@ -3197,7 +3209,7 @@ ped.freeSelectionExits.remove("7");]]></Code>
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[uniform(3, 30)]]></Code>
+								<Code><![CDATA[uniform(5, 60)]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 							</Value>
 						</Parameter>
@@ -3346,8 +3358,8 @@ ped.freeSelectionExits.remove("7");]]></Code>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[ped.inSouthHall = true;
-southHallCount = southHallCount+1;]]></Code>
+								<Code><![CDATA[//ped.inSouthHall = true;
+//southHallCount = southHallCount+1;]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -3627,6 +3639,13 @@ southHallCount = southHallCount+1;]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[if (GFqueueService.getQueues().get(0).size()>1){
+	ped.isInSelArea=true;
+	visitorsInSelArea = visitorsInSelArea+1;
+	ped.selAreaEntryTime = time();
+}]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnterQueue]]></Name>
@@ -4286,12 +4305,12 @@ southHallCount = southHallCount+1;]]></Code>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[if(ped.inSouthHall == true){
-	southHallCount = southHallCount-1;
-}
-else if(ped.inWestHall){
-	westHallCount = westHallCount-1;
-}]]></Code>
+								<Code><![CDATA[//if(ped.inSouthHall == true){
+//	southHallCount = southHallCount-1;
+//}
+//else if(ped.inWestHall){
+//	westHallCount = westHallCount-1;
+//}]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -10612,9 +10631,9 @@ else if(ped.inWestHall){
 				<Control Type="Window3D">
 					<Id>1686893877093</Id>
 					<Name><![CDATA[window3d]]></Name>
-					<X>1040</X><Y>980</Y>
-					<Width>460</Width>
-					<Height>320</Height>
+					<X>1670</X><Y>810</Y>
+					<Width>310</Width>
+					<Height>230</Height>
 					<MakeDefaultViewArea>true</MakeDefaultViewArea>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<ShowLabel>false</ShowLabel>
@@ -10626,9 +10645,9 @@ else if(ped.inWestHall){
 				<Control Type="Window3D">
 					<Id>1686893897590</Id>
 					<Name><![CDATA[window3d1]]></Name>
-					<X>1520</X><Y>980</Y>
-					<Width>460</Width>
-					<Height>320</Height>
+					<X>1670</X><Y>1060</Y>
+					<Width>310</Width>
+					<Height>240</Height>
 					<MakeDefaultViewArea>true</MakeDefaultViewArea>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<ShowLabel>false</ShowLabel>
@@ -11381,7 +11400,7 @@ else if(ped.inWestHall){
 					<Id>1688014982431</Id>
 					<Expression><![CDATA[my_dataset]]></Expression>
 					<Color>-9404272</Color>
-					<Expression2><![CDATA[westHallCount//westHall.getPeds().size() ]]></Expression2>
+					<Expression2><![CDATA[westHall.getPeds().size() // westHallCount]]></Expression2>
 					<Expression2Flag>true</Expression2Flag>
 						<PointStyle>NONE</PointStyle>
 						<LineWidth>1.0</LineWidth>
@@ -11391,7 +11410,7 @@ else if(ped.inWestHall){
 					<Id>1688015070914</Id>
 					<Expression><![CDATA[my_dataset1]]></Expression>
 					<Color>-7667573</Color>
-					<Expression2><![CDATA[southHallCount]]></Expression2>
+					<Expression2><![CDATA[southHall.getPeds().size() //southHallCount]]></Expression2>
 					<Expression2Flag>true</Expression2Flag>
 						<PointStyle>NONE</PointStyle>
 						<LineWidth>1.0</LineWidth>
@@ -12052,34 +12071,6 @@ else if(ped.inWestHall){
 					<QueueChoicePolicy>CLOSEST_QUEUE_STRICT</QueueChoicePolicy>
 					<Rotation>90</Rotation>
 				</ServicePoint>
-				<ServicePoint>
-					<Id>1688126495425</Id>
-					<Name><![CDATA[servicePoint3]]></Name>
-					<X>1615</X><Y>580</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<OverrideQueueChoicePolicy>false</OverrideQueueChoicePolicy>
-					<QueueChoicePolicy>CLOSEST_QUEUE_STRICT</QueueChoicePolicy>
-					<Rotation>90</Rotation>
-				</ServicePoint>
-				<ServicePoint>
-					<Id>1688126495427</Id>
-					<Name><![CDATA[servicePoint4]]></Name>
-					<X>1585</X><Y>580</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<OverrideQueueChoicePolicy>false</OverrideQueueChoicePolicy>
-					<QueueChoicePolicy>CLOSEST_QUEUE_STRICT</QueueChoicePolicy>
-					<Rotation>90</Rotation>
-				</ServicePoint>
 				<QueueLine>
 					<Id>1688126495429</Id>
 					<Name><![CDATA[queueDrinksLine1]]></Name>
@@ -12096,13 +12087,39 @@ else if(ped.inWestHall){
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
 						<Point><X>-25</X><Y>0</Y></Point>
-						<Point><X>25</X><Y>0</Y></Point>
-						<Point><X>39</X><Y>0</Y></Point>
-						<Point><X>14</X><Y>0</Y></Point>
-						<Point><X>62.408</X><Y>8.777999999999999</Y></Point>
-						<Point><X>79</X><Y>15</Y></Point>
-						<Point><X>55.5920000000001</X><Y>6.22199999999998</Y></Point>
-						<Point><X>104</X><Y>15</Y></Point>
+						<Point><X>19.622</X><Y>15.491</Y></Point>
+						<Point><X>19</X><Y>15</Y></Point>
+						<Point><X>-0.622</X><Y>-0.491</Y></Point>
+						<Point><X>36.678</X><Y>32.678</Y></Point>
+						<Point><X>29</X><Y>25</Y></Point>
+						<Point><X>11.322</X><Y>7.322</Y></Point>
+						<Point><X>54</X><Y>25</Y></Point>
+					</Points>
+					<ExceededQueuePolicy>EXTEND_QUEUE_TO_THE_FREE_SPACE</ExceededQueuePolicy>
+				</QueueLine>
+				<QueueLine>
+					<Id>1688217393917</Id>
+					<Name><![CDATA[queueLine8]]></Name>
+					<X>1511.333</X><Y>543.333</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<Reversed>false</Reversed>
+					<LimitedCapacity>false</LimitedCapacity>
+					<Capacity><![CDATA[10]]></Capacity>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>24.967</X><Y>1.294</Y></Point>
+						<Point><X>24.996</X><Y>0.45</Y></Point>
+						<Point><X>74</X><Y>1.334</Y></Point>
+						<Point><X>49.004</X><Y>0.883</Y></Point>
+						<Point><X>98.882</X><Y>3.761</Y></Point>
+						<Point><X>128.667</X><Y>6.667</Y></Point>
+						<Point><X>103.785</X><Y>4.24</Y></Point>
+						<Point><X>103.7</X><Y>5.373</Y></Point>
 					</Points>
 					<ExceededQueuePolicy>EXTEND_QUEUE_TO_THE_FREE_SPACE</ExceededQueuePolicy>
 				</QueueLine>
@@ -12223,7 +12240,7 @@ else if(ped.inWestHall){
 				<ServicePoint>
 					<Id>1688126495456</Id>
 					<Name><![CDATA[servicePoint5]]></Name>
-					<X>1604</X><Y>457</Y>
+					<X>1604.667</X><Y>474.333</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -12237,7 +12254,7 @@ else if(ped.inWestHall){
 				<ServicePoint>
 					<Id>1688126495458</Id>
 					<Name><![CDATA[servicePoint6]]></Name>
-					<X>1604</X><Y>437</Y>
+					<X>1604.667</X><Y>453.667</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -12251,7 +12268,7 @@ else if(ped.inWestHall){
 				<ServicePoint>
 					<Id>1688126495460</Id>
 					<Name><![CDATA[servicePoint7]]></Name>
-					<X>1604</X><Y>477</Y>
+					<X>1604</X><Y>493</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -12286,11 +12303,40 @@ else if(ped.inWestHall){
 						<Point><X>66.298</X><Y>-6.15300000000002</Y></Point>
 						<Point><X>108.67800000000011</X><Y>-27.677999999999997</Y></Point>
 						<Point><X>111</X><Y>-30</Y></Point>
-						<Point><X>93.32199999999989</X><Y>-12.322000000000003</Y></Point>
+						<Point><X>93.322</X><Y>-12.322</Y></Point>
 						<Point><X>111</X><Y>-55</Y></Point>
-						<Point><X>111</X><Y>-70</Y></Point>
-						<Point><X>111</X><Y>-45</Y></Point>
-						<Point><X>86</X><Y>-70</Y></Point>
+						<Point><X>111</X><Y>-40</Y></Point>
+						<Point><X>111</X><Y>-15</Y></Point>
+						<Point><X>86</X><Y>-40</Y></Point>
+					</Points>
+					<ExceededQueuePolicy>EXTEND_QUEUE_TO_THE_FREE_SPACE</ExceededQueuePolicy>
+				</QueueLine>
+				<QueueLine>
+					<Id>1688218388120</Id>
+					<Name><![CDATA[queueLine15]]></Name>
+					<X>1510</X><Y>530</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<Reversed>false</Reversed>
+					<LimitedCapacity>false</LimitedCapacity>
+					<Capacity><![CDATA[10]]></Capacity>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>43.45</X><Y>0.85</Y></Point>
+						<Point><X>24.876</X><Y>-2.488</Y></Point>
+						<Point><X>100</X><Y>-10</Y></Point>
+						<Point><X>75.124</X><Y>-7.512</Y></Point>
+						<Point><X>113.868</X><Y>-30.801</Y></Point>
+						<Point><X>120</X><Y>-40</Y></Point>
+						<Point><X>106.132</X><Y>-19.199</Y></Point>
+						<Point><X>112.094</X><Y>-63.717</Y></Point>
+						<Point><X>110</X><Y>-70</Y></Point>
+						<Point><X>117.906</X><Y>-46.283</Y></Point>
+						<Point><X>85</X><Y>-70</Y></Point>
 					</Points>
 					<ExceededQueuePolicy>EXTEND_QUEUE_TO_THE_FREE_SPACE</ExceededQueuePolicy>
 				</QueueLine>
@@ -12966,21 +13012,21 @@ else if(ped.inWestHall){
 						<Point><X>60.493</X><Y>-4.573</Y></Point>
 						<Point><X>105</X><Y>-11</Y></Point>
 						<Point><X>80.257</X><Y>-7.427</Y></Point>
-						<Point><X>123.035</X><Y>-28.313</Y></Point>
-						<Point><X>130</X><Y>-35</Y></Point>
-						<Point><X>111.96499999999992</X><Y>-17.687000000000012</Y></Point>
-						<Point><X>124.08300000000008</X><Y>-59.29000000000002</Y></Point>
-						<Point><X>111</X><Y>-113</Y></Point>
-						<Point><X>116.91699999999992</X><Y>-88.70999999999998</Y></Point>
-						<Point><X>88.6389999999999</X><Y>-124.18</Y></Point>
-						<Point><X>91</X><Y>-123</Y></Point>
-						<Point><X>113.36099999999988</X><Y>-111.82</Y></Point>
-						<Point><X>66</X><Y>-123</Y></Point>
-						<Point><X>31</X><Y>-123</Y></Point>
-						<Point><X>56</X><Y>-123</Y></Point>
-						<Point><X>6.4849999999999</X><Y>-118.09699999999998</Y></Point>
+						<Point><X>116.18</X><Y>-33.361</Y></Point>
+						<Point><X>121</X><Y>-43</Y></Point>
+						<Point><X>109.82</X><Y>-20.639</Y></Point>
+						<Point><X>116.097</X><Y>-67.515</Y></Point>
+						<Point><X>111</X><Y>-93</Y></Point>
+						<Point><X>115.903</X><Y>-68.485</Y></Point>
+						<Point><X>93.322</X><Y>-110.678</Y></Point>
+						<Point><X>91</X><Y>-113</Y></Point>
+						<Point><X>108.678</X><Y>-95.322</Y></Point>
+						<Point><X>66</X><Y>-113</Y></Point>
+						<Point><X>31</X><Y>-113</Y></Point>
+						<Point><X>56</X><Y>-113</Y></Point>
+						<Point><X>6</X><Y>-113</Y></Point>
 						<Point><X>-19</X><Y>-113</Y></Point>
-						<Point><X>5.5150000000001</X><Y>-117.90300000000002</Y></Point>
+						<Point><X>6</X><Y>-113</Y></Point>
 						<Point><X>-19</X><Y>-88</Y></Point>
 					</Points>
 					<ExceededQueuePolicy>EXTEND_QUEUE_TO_THE_FREE_SPACE</ExceededQueuePolicy>
@@ -13143,7 +13189,7 @@ else if(ped.inWestHall){
 				<ServicePoint>
 					<Id>1688126495663</Id>
 					<Name><![CDATA[servicePoint20]]></Name>
-					<X>1550</X><Y>430</Y>
+					<X>1590</X><Y>580</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -13157,7 +13203,7 @@ else if(ped.inWestHall){
 				<ServicePoint>
 					<Id>1688126495665</Id>
 					<Name><![CDATA[servicePoint21]]></Name>
-					<X>1570</X><Y>430</Y>
+					<X>1610</X><Y>580</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -13169,9 +13215,9 @@ else if(ped.inWestHall){
 					<Rotation>90</Rotation>
 				</ServicePoint>
 				<QueueLine>
-					<Id>1688126495667</Id>
-					<Name><![CDATA[queueSSLine3]]></Name>
-					<X>1509</X><Y>531</Y>
+					<Id>1688217499284</Id>
+					<Name><![CDATA[queueSSLine3_1]]></Name>
+					<X>1510</X><Y>550</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -13183,29 +13229,40 @@ else if(ped.inWestHall){
 					<Capacity><![CDATA[10]]></Capacity>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-17.678</X><Y>-17.678</Y></Point>
-						<Point><X>24.993</X><Y>-0.6100000000000003</Y></Point>
-						<Point><X>41</X><Y>-1</Y></Point>
-						<Point><X>16.007</X><Y>-0.3899999999999997</Y></Point>
-						<Point><X>65.66</X><Y>-5.109999999999999</Y></Point>
-						<Point><X>101</X><Y>-11</Y></Point>
-						<Point><X>76.33999999999992</X><Y>-6.889999999999986</Y></Point>
-						<Point><X>118.67799999999988</X><Y>-28.677999999999997</Y></Point>
-						<Point><X>121</X><Y>-31</Y></Point>
-						<Point><X>103.32200000000012</X><Y>-13.322000000000003</Y></Point>
-						<Point><X>121</X><Y>-56</Y></Point>
-						<Point><X>121</X><Y>-71</Y></Point>
-						<Point><X>121</X><Y>-46</Y></Point>
-						<Point><X>109.81999999999994</X><Y>-93.36099999999999</Y></Point>
-						<Point><X>101</X><Y>-111</Y></Point>
-						<Point><X>112.18000000000006</X><Y>-88.63900000000001</Y></Point>
-						<Point><X>76</X><Y>-111</Y></Point>
-						<Point><X>91</X><Y>-111</Y></Point>
-						<Point><X>116</X><Y>-111</Y></Point>
-						<Point><X>66</X><Y>-111</Y></Point>
-						<Point><X>51</X><Y>-111</Y></Point>
-						<Point><X>76</X><Y>-111</Y></Point>
-						<Point><X>51</X><Y>-86</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>24.868</X><Y>2.564</Y></Point>
+						<Point><X>64.667</X><Y>6.667</Y></Point>
+						<Point><X>39.798</X><Y>4.103</Y></Point>
+						<Point><X>83.532</X><Y>23.071</Y></Point>
+						<Point><X>80</X><Y>20</Y></Point>
+						<Point><X>61.135</X><Y>3.596</Y></Point>
+						<Point><X>80</X><Y>45</Y></Point>
+					</Points>
+					<ExceededQueuePolicy>EXTEND_QUEUE_TO_THE_FREE_SPACE</ExceededQueuePolicy>
+				</QueueLine>
+				<QueueLine>
+					<Id>1688217570327</Id>
+					<Name><![CDATA[queueSSLine3_2]]></Name>
+					<X>1530</X><Y>550</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<Reversed>false</Reversed>
+					<LimitedCapacity>false</LimitedCapacity>
+					<Capacity><![CDATA[10]]></Capacity>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>24.976</X><Y>1.086</Y></Point>
+						<Point><X>61.333</X><Y>2.667</Y></Point>
+						<Point><X>36.357</X><Y>1.581</Y></Point>
+						<Point><X>79.653</X><Y>19.678</Y></Point>
+						<Point><X>80</X><Y>20</Y></Point>
+						<Point><X>61.68</X><Y>2.989</Y></Point>
+						<Point><X>80</X><Y>45</Y></Point>
 					</Points>
 					<ExceededQueuePolicy>EXTEND_QUEUE_TO_THE_FREE_SPACE</ExceededQueuePolicy>
 				</QueueLine>
@@ -13226,7 +13283,7 @@ else if(ped.inWestHall){
     			<BarChart>
 					<Id>1688126948376</Id>
 					<Name><![CDATA[chart1]]></Name>
-					<X>740</X><Y>200</Y>
+					<X>1180</X><Y>1570</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -13300,7 +13357,7 @@ else if(ped.inWestHall){
 					</DataItem>
 					<DataItem>
 					<Id>1688126948372</Id>
-					<Expression><![CDATA[selfFoodServiceArea3.queueSize(queueSSLine3)]]></Expression>
+					<Expression><![CDATA[selfFoodServiceArea3.queueSize(queueSSLine3_1)]]></Expression>
 					<Color>-4343957</Color>
 						<Title><![CDATA[selfService3]]></Title>
 					</DataItem>
@@ -13634,10 +13691,10 @@ else if(ped.inWestHall){
 						<Point><X>141.18</X><Y>-52.361</Y></Point>
 						<Point><X>140</X><Y>-50</Y></Point>
 						<Point><X>128.82</X><Y>-27.639</Y></Point>
-						<Point><X>136.031</X><Y>-74.683</Y></Point>
-						<Point><X>123.6</X><Y>-152</Y></Point>
-						<Point><X>127.569</X><Y>-127.317</Y></Point>
-						<Point><X>123.6</X><Y>-177</Y></Point>
+						<Point><X>137.512</X><Y>-74.876</Y></Point>
+						<Point><X>130</X><Y>-150</Y></Point>
+						<Point><X>132.488</X><Y>-125.124</Y></Point>
+						<Point><X>130</X><Y>-175</Y></Point>
 					</Points>
 					<ExceededQueuePolicy>EXTEND_QUEUE_TO_THE_FREE_SPACE</ExceededQueuePolicy>
 				</QueueLine>
@@ -13655,6 +13712,73 @@ else if(ped.inWestHall){
 					<WaitForExit>false</WaitForExit>
 					<QueueChoicePolicy>LONGEST_QUEUE</QueueChoicePolicy>
 				</ServiceWithLine>
+    			<TimePlot>
+					<Id>1688218704174</Id>
+					<Name><![CDATA[plot]]></Name>
+					<X>1110</X><Y>870</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1688284800000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>450</Width>
+					<Height>300</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>30</YOffset>
+						<Width>370</Width>
+						<Height>210</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>30</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
+					<TimeWindowUnits>MODEL_TIME_UNIT</TimeWindowUnits>
+					<VerScaleFromExpression><![CDATA[0]]></VerScaleFromExpression>
+					<VerScaleToExpression><![CDATA[1]]></VerScaleToExpression>
+					<VerScaleType>AUTO</VerScaleType>
+					<DrawLine>true</DrawLine>
+					<Interpolation>LINEAR</Interpolation>
+					<DatasetExpression>  
+						<Title><![CDATA[Mean waiting time]]></Title>
+					<Id>1688218705563</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-10496</Color>
+					<Expression2><![CDATA[selAreaWaitTime.getYMean()]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>
+						<PointStyle>NONE</PointStyle>
+						<LineWidth>1.0</LineWidth>
+					</DatasetExpression>
+					<SamplesToKeep>100</SamplesToKeep>
+					<TimeWindowExpression><![CDATA[100]]></TimeWindowExpression>
+					<FillAreaUnderLine>false</FillAreaUnderLine>
+					<LabelFormat>MODEL_TIME_UNITS</LabelFormat>
+    			</TimePlot>
 			</Presentation>
 
 				</Level>
@@ -15122,7 +15246,8 @@ else if(ped.inWestHall){
 				<Variable Class="PlainVariable">
 					<Id>1688017672496</Id>
 					<Name><![CDATA[inSouthHall]]></Name>
-					<X>310</X><Y>290</Y>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>150</X><Y>510</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -15137,7 +15262,8 @@ else if(ped.inWestHall){
 				<Variable Class="PlainVariable">
 					<Id>1688017681959</Id>
 					<Name><![CDATA[inWestHall]]></Name>
-					<X>480</X><Y>290</Y>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>320</X><Y>510</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -15159,6 +15285,21 @@ else if(ped.inWestHall){
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1688220243200</Id>
+					<Name><![CDATA[isInSelArea]]></Name>
+					<X>310</X><Y>290</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[boolean]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[false]]></Code>
+						</InitialValue>
 					</Properties>
 				</Variable>
 				<Variable Class="Parameter">
