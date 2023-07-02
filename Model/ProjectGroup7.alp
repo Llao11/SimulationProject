@@ -109,38 +109,6 @@
 			<ConnectionsId>1686863249765</ConnectionsId>
 			<Variables>
 				<Variable Class="PlainVariable">
-					<Id>1688017722731</Id>
-					<Name><![CDATA[southHallCount]]></Name>
-					<ExcludeFromBuild>true</ExcludeFromBuild>
-					<X>260</X><Y>1390</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
-						<Type><![CDATA[double]]></Type>        
-						<InitialValue Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</InitialValue>
-					</Properties>
-				</Variable>
-				<Variable Class="PlainVariable">
-					<Id>1688017821219</Id>
-					<Name><![CDATA[westHallCount]]></Name>
-					<ExcludeFromBuild>true</ExcludeFromBuild>
-					<X>260</X><Y>1450</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
-						<Type><![CDATA[double]]></Type>        
-						<InitialValue Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</InitialValue>
-					</Properties>
-				</Variable>
-				<Variable Class="PlainVariable">
 					<Id>1688087273984</Id>
 					<Name><![CDATA[visitorsInSelArea]]></Name>
 					<X>490</X><Y>1390</Y>
@@ -222,9 +190,9 @@
 						<Point><X>0</X><Y>0</Y></Point>
 						<Point><X>-50</X><Y>0</Y></Point>
 						<Point><X>-50</X><Y>50</Y></Point>
-						<Point><X>190</X><Y>250</Y></Point>
-						<Point><X>190</X><Y>300</Y></Point>
-						<Point><X>140</X><Y>300</Y></Point>
+						<Point><X>190</X><Y>280</Y></Point>
+						<Point><X>190</X><Y>330</Y></Point>
+						<Point><X>140</X><Y>330</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
@@ -564,7 +532,7 @@
 				<Connector>
 					<Id>1688126184721</Id>
 					<Name><![CDATA[connector57]]></Name>
-					<X>160</X><Y>1220</Y>
+					<X>160</X><Y>1250</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -597,7 +565,7 @@
 				<Connector>
 					<Id>1688126184726</Id>
 					<Name><![CDATA[connector58]]></Name>
-					<X>250</X><Y>1220</Y>
+					<X>250</X><Y>1250</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1493,6 +1461,28 @@
 					<FreezeXAxis>true</FreezeXAxis>
 					<SamplesToKeep>10000</SamplesToKeep>
 				</DataSet>
+    			<DataSet>
+					<Id>1688265090556</Id>
+					<Name><![CDATA[totalWaitingTime]]></Name>
+					<X>920</X><Y>1450</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<AutoUpdate>false</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1688284800000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+					</RecurrenceCode>
+					<FreezeXAxis>true</FreezeXAxis>
+					<SamplesToKeep>100</SamplesToKeep>
+				</DataSet>
 			</AnalysisData>
 			<AgentLinks>
 				<AgentLink>
@@ -1520,7 +1510,7 @@
 				<EmbeddedObject>
 					<Id>1688126183803</Id>
 					<Name><![CDATA[studSourceSouth]]></Name>
-					<X>70</X><Y>1220</Y>
+					<X>70</X><Y>1250</Y>
 					<Label><X>-54</X><Y>26</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1711,7 +1701,7 @@ if (
 (selfService2.queueSize(queueSSLine2)<25) &&
 (selfService3.queueSize(queueSSLine3_1)<8) &&
 (selfService3.queueSize(queueSSLine3_2)<8) &&
-(selfDrinksServiceArea.queueSize(queueDrinksLine1)<10) 
+(drinksServiceArea.queueSize(queueDrinksLine1)<10) 
 ){
 	hold1F.unblock();
 } else hold1F.block();
@@ -1884,9 +1874,8 @@ if (takeTray.queueSize(queueLineMain) > 27){
 						<Parameter>
 							<Name><![CDATA[onEnterQueue]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[if (!ped.isInSelArea){
-	visitorsInSelArea = visitorsInSelArea+1;
-	ped.selAreaEntryTime = time();
+								<Code><![CDATA[if (!ped.isWaiting){
+	ped.firstQueueEntryTime = time();
 }]]></Code>
 							</Value>
 						</Parameter>
@@ -1905,8 +1894,8 @@ if (takeTray.queueSize(queueLineMain) > 27){
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[//visitorsInSelArea = visitorsInSelArea+1;
-//ped.selAreaEntryTime = time();]]></Code>
+								<Code><![CDATA[visitorsInSelArea = visitorsInSelArea+1;
+ped.selAreaEntryTime = time();]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -2136,7 +2125,7 @@ ped.freeSelectionExits.remove("4")]]></Code>
 						<Parameter>
 							<Name><![CDATA[services]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[selfDrinksServiceArea]]></Code>
+								<Code><![CDATA[drinksServiceArea]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -2514,7 +2503,9 @@ ped.freeSelectionExits.remove("4")]]></Code>
 visitorsInsideArea.add(visitorsInSelArea);
 waitingTime = time() - ped.selAreaEntryTime;
 selAreaWaitTime.add(waitingTime);
-]]></Code>
+
+ped.waitingAndServingTime=time()-ped.firstQueueEntryTime;
+totalWaitingTime.add(ped.waitingAndServingTime);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -3595,7 +3586,7 @@ ped.freeSelectionExits.remove("7");]]></Code>
 				<EmbeddedObject>
 					<Id>1688126184528</Id>
 					<Name><![CDATA[lineOnStairService]]></Name>
-					<X>160</X><Y>1210</Y>
+					<X>160</X><Y>1240</Y>
 					<Label><X>-50</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3641,9 +3632,8 @@ ped.freeSelectionExits.remove("7");]]></Code>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[if (GFqueueService.getQueues().get(0).size()>1){
-	ped.isInSelArea=true;
-	visitorsInSelArea = visitorsInSelArea+1;
-	ped.selAreaEntryTime = time();
+	ped.isWaiting=true;
+	ped.firstQueueEntryTime = time();
 }]]></Code>
 							</Value>
 						</Parameter>
@@ -3711,7 +3701,7 @@ ped.freeSelectionExits.remove("7");]]></Code>
 				<EmbeddedObject>
 					<Id>1688126184560</Id>
 					<Name><![CDATA[holdGF]]></Name>
-					<X>250</X><Y>1210</Y>
+					<X>250</X><Y>1240</Y>
 					<Label><X>-10</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -11946,7 +11936,7 @@ ped.freeSelectionExits.remove("7");]]></Code>
 				<ServiceWithLine>
 					<ServiceColor>-16744448</ServiceColor>
 					<Id>1688126495419</Id>
-					<Name><![CDATA[selfDrinksServiceArea]]></Name>
+					<Name><![CDATA[drinksServiceArea]]></Name>
 					<X>1480</X><Y>560</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
@@ -12468,20 +12458,6 @@ ped.freeSelectionExits.remove("7");]]></Code>
 					<QueueChoicePolicy>CLOSEST_QUEUE_STRICT</QueueChoicePolicy>
 					<Rotation>0</Rotation>
 				</ServicePoint>
-				<ServicePoint>
-					<Id>1688126495503</Id>
-					<Name><![CDATA[servicePoint9]]></Name>
-					<X>1694.2</X><Y>544.2</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<OverrideQueueChoicePolicy>false</OverrideQueueChoicePolicy>
-					<QueueChoicePolicy>CLOSEST_QUEUE_STRICT</QueueChoicePolicy>
-					<Rotation>0</Rotation>
-				</ServicePoint>
 				<QueueLine>
 					<Id>1688126495505</Id>
 					<Name><![CDATA[queueFSLine1]]></Name>
@@ -12526,7 +12502,7 @@ ped.freeSelectionExits.remove("7");]]></Code>
 					<ServiceColor>-16744448</ServiceColor>
 					<Id>1688126495542</Id>
 					<Name><![CDATA[foodServiceArea2]]></Name>
-					<X>1625</X><Y>425</Y>
+					<X>1620</X><Y>420</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -12623,23 +12599,9 @@ ped.freeSelectionExits.remove("7");]]></Code>
 					</Points>
 				</PolygonNode>
 				<ServicePoint>
-					<Id>1688126495544</Id>
-					<Name><![CDATA[servicePoint10]]></Name>
-					<X>1700</X><Y>410</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<OverrideQueueChoicePolicy>false</OverrideQueueChoicePolicy>
-					<QueueChoicePolicy>CLOSEST_QUEUE_STRICT</QueueChoicePolicy>
-					<Rotation>0</Rotation>
-				</ServicePoint>
-				<ServicePoint>
 					<Id>1688126495546</Id>
 					<Name><![CDATA[servicePoint11]]></Name>
-					<X>1700</X><Y>430</Y>
+					<X>1700</X><Y>420</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -12677,11 +12639,11 @@ ped.freeSelectionExits.remove("7");]]></Code>
 						<Point><X>86.1389999999999</X><Y>-7.3700000000000045</Y></Point>
 						<Point><X>130.52199999999993</X><Y>-25.616999999999962</Y></Point>
 						<Point><X>161</X><Y>-50</Y></Point>
-						<Point><X>141.47800000000007</X><Y>-34.38299999999998</Y></Point>
-						<Point><X>168.90599999999995</X><Y>-73.71699999999998</Y></Point>
-						<Point><X>181</X><Y>-110</Y></Point>
-						<Point><X>173.09400000000005</X><Y>-86.28300000000002</Y></Point>
-						<Point><X>206</X><Y>-110</Y></Point>
+						<Point><X>141.478</X><Y>-34.383</Y></Point>
+						<Point><X>165.11</X><Y>-74.66</Y></Point>
+						<Point><X>171</X><Y>-110</Y></Point>
+						<Point><X>166.89</X><Y>-85.34</Y></Point>
+						<Point><X>196</X><Y>-110</Y></Point>
 					</Points>
 					<ExceededQueuePolicy>EXTEND_QUEUE_TO_THE_FREE_SPACE</ExceededQueuePolicy>
 				</QueueLine>
@@ -13489,20 +13451,6 @@ ped.freeSelectionExits.remove("7");]]></Code>
 					<QueueChoicePolicy>CLOSEST_QUEUE_STRICT</QueueChoicePolicy>
 					<Rotation>0</Rotation>
 				</ServicePoint>
-				<ServicePoint>
-					<Id>1688156850224</Id>
-					<Name><![CDATA[servicePoint23]]></Name>
-					<X>1700</X><Y>490</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<OverrideQueueChoicePolicy>false</OverrideQueueChoicePolicy>
-					<QueueChoicePolicy>CLOSEST_QUEUE_STRICT</QueueChoicePolicy>
-					<Rotation>0</Rotation>
-				</ServicePoint>
 				<QueueLine>
 					<Id>1688156850226</Id>
 					<Name><![CDATA[queueFSLine4]]></Name>
@@ -13769,7 +13717,7 @@ ped.freeSelectionExits.remove("7");]]></Code>
 					<Id>1688218705563</Id>
 					<Expression><![CDATA[my_dataset]]></Expression>
 					<Color>-10496</Color>
-					<Expression2><![CDATA[selAreaWaitTime.getYMean()]]></Expression2>
+					<Expression2><![CDATA[totalWaitingTime.getYMean()]]></Expression2>
 					<Expression2Flag>true</Expression2Flag>
 						<PointStyle>NONE</PointStyle>
 						<LineWidth>1.0</LineWidth>
@@ -15233,46 +15181,14 @@ ped.freeSelectionExits.remove("7");]]></Code>
 				</Variable>
 				<Variable Class="PlainVariable">
 					<Id>1686868139551</Id>
-					<Name><![CDATA[variable]]></Name>
-					<X>310</X><Y>200</Y>
+					<Name><![CDATA[waitingAndServingTime]]></Name>
+					<X>540</X><Y>360</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[double]]></Type>        
-					</Properties>
-				</Variable>
-				<Variable Class="PlainVariable">
-					<Id>1688017672496</Id>
-					<Name><![CDATA[inSouthHall]]></Name>
-					<ExcludeFromBuild>true</ExcludeFromBuild>
-					<X>150</X><Y>510</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
-						<Type><![CDATA[boolean]]></Type>        
-						<InitialValue Class="CodeValue">
-							<Code><![CDATA[false]]></Code>
-						</InitialValue>
-					</Properties>
-				</Variable>
-				<Variable Class="PlainVariable">
-					<Id>1688017681959</Id>
-					<Name><![CDATA[inWestHall]]></Name>
-					<ExcludeFromBuild>true</ExcludeFromBuild>
-					<X>320</X><Y>510</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
-						<Type><![CDATA[boolean]]></Type>        
-						<InitialValue Class="CodeValue">
-							<Code><![CDATA[false]]></Code>
-						</InitialValue>
 					</Properties>
 				</Variable>
 				<Variable Class="PlainVariable">
@@ -15289,8 +15205,8 @@ ped.freeSelectionExits.remove("7");]]></Code>
 				</Variable>
 				<Variable Class="PlainVariable">
 					<Id>1688220243200</Id>
-					<Name><![CDATA[isInSelArea]]></Name>
-					<X>310</X><Y>290</Y>
+					<Name><![CDATA[isWaiting]]></Name>
+					<X>130</X><Y>360</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -15300,6 +15216,18 @@ ped.freeSelectionExits.remove("7");]]></Code>
 						<InitialValue Class="CodeValue">
 							<Code><![CDATA[false]]></Code>
 						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1688247749414</Id>
+					<Name><![CDATA[firstQueueEntryTime]]></Name>
+					<X>320</X><Y>360</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
 					</Properties>
 				</Variable>
 				<Variable Class="Parameter">
@@ -15393,7 +15321,7 @@ ped.freeSelectionExits.remove("7");]]></Code>
 				<Variable Class="CollectionVariable">
 					<Id>1688126291179</Id>
 					<Name><![CDATA[takenFood]]></Name>
-					<X>480</X><Y>200</Y>
+					<X>310</X><Y>200</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -15408,7 +15336,7 @@ ped.freeSelectionExits.remove("7");]]></Code>
 				<Variable Class="CollectionVariable">
 					<Id>1688126291199</Id>
 					<Name><![CDATA[freeSelectionExits]]></Name>
-					<X>640</X><Y>200</Y>
+					<X>530</X><Y>200</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -15424,13 +15352,209 @@ ped.freeSelectionExits.remove("7");]]></Code>
 
 				</Variable>
 			</Variables>
+			<StatechartElements>
+				<StatechartElement Class="State" ParentState="ROOT_NODE">
+					<Id>1688224076521</Id>
+					<Name><![CDATA[waitingAndGettingFood]]></Name>
+					<X>580</X><Y>530</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="100" Height="30">
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="ROOT_NODE">
+					<Id>1688224085758</Id>
+					<Name><![CDATA[eating]]></Name>
+					<X>580</X><Y>610</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="100" Height="30">
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="ROOT_NODE">
+					<Id>1688224176675</Id>
+					<Name><![CDATA[goingOut]]></Name>
+					<X>580</X><Y>690</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="100" Height="30">
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="FinalState" ParentState="ROOT_NODE">
+					<Id>1688224201350</Id>
+					<Name><![CDATA[finalState]]></Name>
+					<X>630</X><Y>780</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Properties>	
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="ROOT_NODE">
+					<Id>1688224216085</Id>
+					<Name><![CDATA[goingIn]]></Name>
+					<X>580</X><Y>450</Y>
+					<Label><X>5</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="100" Height="30">
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="EntryPoint" ParentState="ROOT_NODE">
+					<Id>1688224066689</Id>
+					<Name><![CDATA[statechart]]></Name>
+					<X>630</X><Y>410</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>40</Y></Point>
+					</Points>
+					<Properties Target="1688224216085">
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1688224133544</Id>
+					<Name><![CDATA[transition]]></Name>
+					<X>630</X><Y>560</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>50</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1688224076521" Target="1688224085758" Trigger="condition">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_MINUTE]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[unconditionally]]></FilterType>
+						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1688224192195</Id>
+					<Name><![CDATA[transition1]]></Name>
+					<X>630</X><Y>640</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>50</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1688224085758" Target="1688224176675" Trigger="timeout">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_MINUTE]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[unconditionally]]></FilterType>
+						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1688224204045</Id>
+					<Name><![CDATA[transition2]]></Name>
+					<X>630</X><Y>720</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>52</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1688224176675" Target="1688224201350" Trigger="timeout">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_MINUTE]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[unconditionally]]></FilterType>
+						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1688224239765</Id>
+					<Name><![CDATA[transition3]]></Name>
+					<X>630</X><Y>480</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>50</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1688224216085" Target="1688224076521" Trigger="timeout">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_MINUTE]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[unconditionally]]></FilterType>
+						<EqualsExpression><![CDATA["text"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+			</StatechartElements>
 			<Functions>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1688126291209</Id>
 					<Name><![CDATA[eatingTime]]></Name>
-					<X>130</X><Y>360</Y>
+					<X>140</X><Y>450</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -15442,7 +15566,7 @@ ped.freeSelectionExits.remove("7");]]></Code>
 					<ReturnType><![CDATA[int]]></ReturnType>
 					<Id>1688126291216</Id>
 					<Name><![CDATA[exitSelection]]></Name>
-					<X>310</X><Y>360</Y>
+					<X>320</X><Y>450</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -15465,6 +15589,11 @@ return Integer.parseInt(freeSelectionExits.get(index));
 					<AgentLinkType>COLLECTION_OF_LINKS</AgentLinkType>
 					<AgentLinkBidirectional>true</AgentLinkBidirectional>
 					<MessageType><![CDATA[Object]]></MessageType>
+					<StatechartReference>
+						<PackageName><![CDATA[projectgroup7]]></PackageName>
+						<ClassName><![CDATA[Student]]></ClassName>
+						<ItemName><![CDATA[statechart]]></ItemName>
+					</StatechartReference>
 					<LineStyle>SOLID</LineStyle>
 					<LineWidth>1</LineWidth>
 					<LineColor>-16777216</LineColor>
