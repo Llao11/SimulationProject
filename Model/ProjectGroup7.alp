@@ -4,7 +4,7 @@
 	         AnyLogic Project File 
 *************************************************	         
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.8.3.202304281216" AlpVersion="8.7.7">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.8.1.202210270952" AlpVersion="8.7.7">
 <Model>
 	<Id>1686863249761</Id>
 	<Name><![CDATA[ProjectGroup7]]></Name>
@@ -16,6 +16,7 @@
 		<ActiveObjectClass>
 			<Id>1686863249764</Id>
 			<Name><![CDATA[Main]]></Name>
+			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
 			<Generic>false</Generic>
 			<GenericParameter>
 				<Id>1686863249770</Id>
@@ -34,6 +35,7 @@
 			<SceneBackgroundColor/>
 			<SceneSkybox>null</SceneSkybox>
 			<AgentProperties>
+	 			<SpaceType>CONTINUOUS</SpaceType>			
 				<EnvironmentDefinesInitialLocation>true</EnvironmentDefinesInitialLocation>
 				<RotateAnimationTowardsMovement>true</RotateAnimationTowardsMovement>
 				<RotateAnimationVertically>false</RotateAnimationVertically>
@@ -3437,7 +3439,7 @@ ped.freeSelectionExits.remove("7");]]></Code>
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[normal(3.341,15.911)]]></Code>
+								<Code><![CDATA[normal(8.341,32.911)]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 							</Value>
 						</Parameter>
@@ -3655,7 +3657,7 @@ ped.freeSelectionExits.remove("7");]]></Code>
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[normal(6.138,19.409)]]></Code>
+								<Code><![CDATA[normal(3.132,15.809)]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 							</Value>
 						</Parameter>
@@ -12014,12 +12016,14 @@ visitorsInTransit = visitorsInTransit-1;]]></Code>
 					<Id>1688006605793</Id>
 					<Expression><![CDATA[takeTray.countPeds()]]></Expression>
 					<Color>-16728065</Color>
+					<Expression2Flag>false</Expression2Flag>
 						<Title><![CDATA[Students entering]]></Title>
 					</DataItem>
 					<DataItem>
 					<Id>1688006612118</Id>
 					<Expression><![CDATA[checkoutService.countPeds()]]></Expression>
 					<Color>-4565549</Color>
+					<Expression2Flag>false</Expression2Flag>
 						<Title><![CDATA[Students exiting after payment]]></Title>
 					</DataItem>
 					<ScaleFromExpression><![CDATA[0]]></ScaleFromExpression>
@@ -12103,12 +12107,14 @@ visitorsInTransit = visitorsInTransit-1;]]></Code>
 					<Id>1688014283289</Id>
 					<Expression><![CDATA[westHall.getPeds().size() // westHallCount]]></Expression>
 					<Color>-6632142</Color>
+					<Expression2Flag>false</Expression2Flag>
 						<Title><![CDATA[WestHall]]></Title>
 					</DataItem>
 					<DataItem>
 					<Id>1688014322330</Id>
 					<Expression><![CDATA[southHall.getPeds().size() // southHallCount]]></Expression>
 					<Color>-14774017</Color>
+					<Expression2Flag>false</Expression2Flag>
 						<Title><![CDATA[SouthHall]]></Title>
 					</DataItem>
 					<ScaleFromExpression><![CDATA[0]]></ScaleFromExpression>
@@ -12245,36 +12251,42 @@ visitorsInTransit = visitorsInTransit-1;]]></Code>
 					<Id>1688025788404</Id>
 					<Expression><![CDATA[foodService1.countPeds()]]></Expression>
 					<Color>-16711936</Color>
+					<Expression2Flag>false</Expression2Flag>
 						<Title><![CDATA[foodService1]]></Title>
 					</DataItem>
 					<DataItem>
 					<Id>1688025831843</Id>
 					<Expression><![CDATA[foodService2.countPeds()]]></Expression>
 					<Color>-2354116</Color>
+					<Expression2Flag>false</Expression2Flag>
 						<Title><![CDATA[foodService2]]></Title>
 					</DataItem>
 					<DataItem>
 					<Id>1688025844819</Id>
 					<Expression><![CDATA[foodService3.countPeds()]]></Expression>
 					<Color>-10496</Color>
+					<Expression2Flag>false</Expression2Flag>
 						<Title><![CDATA[foodService3]]></Title>
 					</DataItem>
 					<DataItem>
 					<Id>1688025863741</Id>
 					<Expression><![CDATA[selfService1.countPeds()]]></Expression>
 					<Color>-6632142</Color>
+					<Expression2Flag>false</Expression2Flag>
 						<Title><![CDATA[selfService1]]></Title>
 					</DataItem>
 					<DataItem>
 					<Id>1688026124621</Id>
 					<Expression><![CDATA[selfService2.countPeds()]]></Expression>
 					<Color>-14774017</Color>
+					<Expression2Flag>false</Expression2Flag>
 						<Title><![CDATA[selfService2]]></Title>
 					</DataItem>
 					<DataItem>
 					<Id>1688026155295</Id>
 					<Expression><![CDATA[selfService3.countPeds()]]></Expression>
 					<Color>-3137392</Color>
+					<Expression2Flag>false</Expression2Flag>
 						<Title><![CDATA[selfService3]]></Title>
 					</DataItem>
 					<ScaleFromExpression><![CDATA[0]]></ScaleFromExpression>
@@ -14508,7 +14520,7 @@ visitorsInTransit = visitorsInTransit-1;]]></Code>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[Dessert]]></Text>
+					<Text><![CDATA[Snacks]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -14529,7 +14541,7 @@ visitorsInTransit = visitorsInTransit-1;]]></Code>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
-					<Text><![CDATA[Salad]]></Text>
+					<Text><![CDATA[Salad/Dessert]]></Text>
 					<Font>
 						<Name>SansSerif</Name>
 						<Size>12</Size>
@@ -14762,12 +14774,14 @@ visitorsInTransit = visitorsInTransit-1;]]></Code>
 					<Id>1688561016545</Id>
 					<Expression><![CDATA[foodService1.queueSize(queueFSLine1)]]></Expression>
 					<Color>-65536</Color>
+					<Expression2Flag>false</Expression2Flag>
 						<Title><![CDATA[actualSize]]></Title>
 					</DataItem>
 					<DataItem>
 					<Id>1688561037866</Id>
 					<Expression><![CDATA[lineLimit1]]></Expression>
 					<Color>-16711936</Color>
+					<Expression2Flag>false</Expression2Flag>
 						<Title><![CDATA[lineLimit1]]></Title>
 					</DataItem>
 					<ScaleFromExpression><![CDATA[0]]></ScaleFromExpression>
@@ -14827,12 +14841,14 @@ visitorsInTransit = visitorsInTransit-1;]]></Code>
 					<Id>1688561223005</Id>
 					<Expression><![CDATA[foodService2.queueSize(queueFSLine2)]]></Expression>
 					<Color>-65536</Color>
+					<Expression2Flag>false</Expression2Flag>
 						<Title><![CDATA[actualSize]]></Title>
 					</DataItem>
 					<DataItem>
 					<Id>1688561223006</Id>
 					<Expression><![CDATA[lineLimit2]]></Expression>
 					<Color>-16711936</Color>
+					<Expression2Flag>false</Expression2Flag>
 						<Title><![CDATA[lineLimit2]]></Title>
 					</DataItem>
 					<ScaleFromExpression><![CDATA[0]]></ScaleFromExpression>
@@ -14892,12 +14908,14 @@ visitorsInTransit = visitorsInTransit-1;]]></Code>
 					<Id>1688561241501</Id>
 					<Expression><![CDATA[foodService4.queueSize(queueFSLine4)]]></Expression>
 					<Color>-65536</Color>
+					<Expression2Flag>false</Expression2Flag>
 						<Title><![CDATA[actualSize]]></Title>
 					</DataItem>
 					<DataItem>
 					<Id>1688561241502</Id>
 					<Expression><![CDATA[lineLimit4]]></Expression>
 					<Color>-16711936</Color>
+					<Expression2Flag>false</Expression2Flag>
 						<Title><![CDATA[lineLimit4]]></Title>
 					</DataItem>
 					<ScaleFromExpression><![CDATA[0]]></ScaleFromExpression>
@@ -14957,12 +14975,14 @@ visitorsInTransit = visitorsInTransit-1;]]></Code>
 					<Id>1688561241542</Id>
 					<Expression><![CDATA[foodService3.queueSize(queueFSLine3)]]></Expression>
 					<Color>-65536</Color>
+					<Expression2Flag>false</Expression2Flag>
 						<Title><![CDATA[actualSize]]></Title>
 					</DataItem>
 					<DataItem>
 					<Id>1688561241543</Id>
 					<Expression><![CDATA[lineLimit3]]></Expression>
 					<Color>-16711936</Color>
+					<Expression2Flag>false</Expression2Flag>
 						<Title><![CDATA[lineLimit3]]></Title>
 					</DataItem>
 					<ScaleFromExpression><![CDATA[0]]></ScaleFromExpression>
@@ -15022,12 +15042,14 @@ visitorsInTransit = visitorsInTransit-1;]]></Code>
 					<Id>1688561268512</Id>
 					<Expression><![CDATA[selfService2.queueSize(queueSSLine2)]]></Expression>
 					<Color>-65536</Color>
+					<Expression2Flag>false</Expression2Flag>
 						<Title><![CDATA[actualSize]]></Title>
 					</DataItem>
 					<DataItem>
 					<Id>1688561268513</Id>
 					<Expression><![CDATA[lineLimit6]]></Expression>
 					<Color>-16711936</Color>
+					<Expression2Flag>false</Expression2Flag>
 						<Title><![CDATA[lineLimit6]]></Title>
 					</DataItem>
 					<ScaleFromExpression><![CDATA[0]]></ScaleFromExpression>
@@ -15087,12 +15109,14 @@ visitorsInTransit = visitorsInTransit-1;]]></Code>
 					<Id>1688561268523</Id>
 					<Expression><![CDATA[selfService3.queueSize(queueSSLine3_2)]]></Expression>
 					<Color>-65536</Color>
+					<Expression2Flag>false</Expression2Flag>
 						<Title><![CDATA[actualSize]]></Title>
 					</DataItem>
 					<DataItem>
 					<Id>1688561268524</Id>
 					<Expression><![CDATA[lineLimit8]]></Expression>
 					<Color>-16711936</Color>
+					<Expression2Flag>false</Expression2Flag>
 						<Title><![CDATA[lineLimit8]]></Title>
 					</DataItem>
 					<ScaleFromExpression><![CDATA[0]]></ScaleFromExpression>
@@ -15152,12 +15176,14 @@ visitorsInTransit = visitorsInTransit-1;]]></Code>
 					<Id>1688561268531</Id>
 					<Expression><![CDATA[selfService3.queueSize(queueSSLine3_1)]]></Expression>
 					<Color>-65536</Color>
+					<Expression2Flag>false</Expression2Flag>
 						<Title><![CDATA[actualSize]]></Title>
 					</DataItem>
 					<DataItem>
 					<Id>1688561268532</Id>
 					<Expression><![CDATA[lineLimit7]]></Expression>
 					<Color>-16711936</Color>
+					<Expression2Flag>false</Expression2Flag>
 						<Title><![CDATA[lineLimit7]]></Title>
 					</DataItem>
 					<ScaleFromExpression><![CDATA[0]]></ScaleFromExpression>
@@ -15217,12 +15243,14 @@ visitorsInTransit = visitorsInTransit-1;]]></Code>
 					<Id>1688561268541</Id>
 					<Expression><![CDATA[selfService1.queueSize(queueSSLine1)]]></Expression>
 					<Color>-65536</Color>
+					<Expression2Flag>false</Expression2Flag>
 						<Title><![CDATA[actualSize]]></Title>
 					</DataItem>
 					<DataItem>
 					<Id>1688561268542</Id>
 					<Expression><![CDATA[lineLimit5]]></Expression>
 					<Color>-16711936</Color>
+					<Expression2Flag>false</Expression2Flag>
 						<Title><![CDATA[lineLimit5]]></Title>
 					</DataItem>
 					<ScaleFromExpression><![CDATA[0]]></ScaleFromExpression>
@@ -16580,6 +16608,7 @@ visitorsInTransit = visitorsInTransit-1;]]></Code>
 		<ActiveObjectClass>
 			<Id>1686865870285</Id>
 			<Name><![CDATA[Student]]></Name>
+			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
 			<Generic>false</Generic>
 			<GenericParameter>
 				<Id>1686865870291</Id>
@@ -16598,6 +16627,7 @@ visitorsInTransit = visitorsInTransit-1;]]></Code>
 			<SceneBackgroundColor/>
 			<SceneSkybox>null</SceneSkybox>
 			<AgentProperties>
+	 			<SpaceType>CONTINUOUS</SpaceType>			
 				<EnvironmentDefinesInitialLocation>true</EnvironmentDefinesInitialLocation>
 				<RotateAnimationTowardsMovement>true</RotateAnimationTowardsMovement>
 				<RotateAnimationVertically>false</RotateAnimationVertically>
@@ -17079,6 +17109,7 @@ if (this.mainDishTaken==false){
 		<SimulationExperiment ActiveObjectClassId="1686863249764">
 			<Id>1686863249773</Id>
 			<Name><![CDATA[Simulation]]></Name>
+			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
 			<CommandLineArguments><![CDATA[]]></CommandLineArguments>
 			<MaximumMemory>512</MaximumMemory>
 			<RandomNumberGenerationType>fixedSeed</RandomNumberGenerationType>
