@@ -3338,7 +3338,7 @@ visitorsInTransit = visitorsInTransit-1;	]]></Code>
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[normal(0.966, 3.6)]]></Code>
+								<Code><![CDATA[lognormal(0.966, 3.6,0)]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 							</Value>
 						</Parameter>
