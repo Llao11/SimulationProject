@@ -3474,7 +3474,7 @@ totalWaitingTime.add( ped.waitingAndServingTime);]]></Code>
 						<Parameter>
 							<Name><![CDATA[delayTimeout]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[ped.hunger*uniform(5, 10)]]></Code>
+								<Code><![CDATA[ped.eatingTime()]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 							</Value>
 						</Parameter>
@@ -3497,7 +3497,8 @@ totalWaitingTime.add( ped.waitingAndServingTime);]]></Code>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[//ped.inWestHall = true;
-//westHallCount = westHallCount+1;]]></Code>
+//westHallCount = westHallCount+1;
+]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -4090,7 +4091,7 @@ ped.mainDishTaken=true;]]></Code>
 						<Parameter>
 							<Name><![CDATA[delayTimeout]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[ped.hunger*uniform(5, 10)]]></Code>
+								<Code><![CDATA[ped.eatingTime()]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 							</Value>
 						</Parameter>
@@ -19311,7 +19312,7 @@ ped.selAreaEntryTime = time();]]></Code>
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[uniform(2,8)]]></Code>
+							<Code><![CDATA[lognormal(4.494, 9.36, 0)]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1688126291288</Id>
