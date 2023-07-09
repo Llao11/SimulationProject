@@ -7,7 +7,7 @@
 <AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.8.3.202304281216" AlpVersion="8.7.7">
 <Model>
 	<Id>1686863249761</Id>
-	<Name><![CDATA[ProjectGroup7_new]]></Name>
+	<Name><![CDATA[ProjectGroup7]]></Name>
 	<EngineVersion>6</EngineVersion>
 	<JavaPackageName><![CDATA[projectgroup7]]></JavaPackageName>
 	<ModelTimeUnit><![CDATA[Minute]]></ModelTimeUnit>
@@ -2283,7 +2283,7 @@
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[ped.wantToDrink = randomTrue(0.7);
-ped.timeToEatOneDish = normal(4.494, 23.4);
+ped.timeToEatOneDish = lognormal(4.494, 9.36,0);  //9.36 = 23.4/2.5;
 ped.mainDishTaken=false;
 int min = 1;
 int max = 4;
@@ -5577,7 +5577,7 @@ visitorsInTransit = visitorsInTransit-1;]]></Code>
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[ped.wantToDrink = randomTrue(0.7);
-ped.timeToEatOneDish = normal(4.494, 23.4);
+ped.timeToEatOneDish = lognormal(4.494, 9.36,0);  //9.36 = 23.4/2.5
 ped.mainDishTaken=false;
 int min = 1;
 int max = 4;
@@ -5670,15 +5670,18 @@ if (takeTray.queueSize(queueLineMain) > 27){
 					<Parameters>
 						<Parameter>
 							<Name><![CDATA[conditionIsProbabilistic]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[false]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[condition]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[lineOnStairService.queueSize(queueLine1F)>30]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[probability]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[(1-mainEntranceProbability)]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onAtEnter]]></Name>
@@ -5761,7 +5764,7 @@ if (takeTray.queueSize(queueLineMain) > 27){
 						<Parameter>
 							<Name><![CDATA[locationLine]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[mainEntranceLine]]></Code>
+								<Code><![CDATA[northEntranceLine]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -16770,7 +16773,7 @@ if (takeTray.queueSize(queueLineMain) > 27){
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[normal(4.494, 23.4)]]></Code>
+							<Code><![CDATA[lognormal(4.494, 9.36,0) //9.36 = 23.4/2.5]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1688126291288</Id>
